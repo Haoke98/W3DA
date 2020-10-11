@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="./img/W3DAlogo.png" rel="icon">
+    <title>WEB3DA</title>
+    <style>
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+            color: white;
+            align-items: center;
+        }
+
+        #controlFloor {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            /*border: white solid 1px;*/
+        }
+
+        div {
+            position: absolute;
+            z-index: 1;
+            background-color: rgba(0, 0, 255, 0.3);
+            border: white solid 1px;
+            width: 18%;
+            height: 30%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        #geometryPanel {
+            right: 5%;
+            top: 12%;
+        }
+
+        #mapPanel {
+            right: 5%;
+            top: 48%;
+
+        }
+
+        #objectPanel {
+            left: 5%;
+            top: 10%;
+        }
+
+        canvas {
+            position: absolute;
+            z-index: 0;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            border-color: aqua;
+            border: solid 1px;
+        }
+
+        .activeObject {
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+
+        .unActiveObject {
+            background-color: rgba(0, 255, 0, 0.5);
+        }
+
+        #btnPlay {
+            /*width: 50%;*/
+            position: absolute;
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+        }
+
+
+        .leftArea {
+            /*left: 50px;*/
+            width: max-content;
+            height: max-content;
+            /*background-color: rebeccapurple;*/
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            /*padding-bottom: 20%; !* 让div的高等于宽 *!*/
+        }
+
+        #btnRemove {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 0px;
+        }
+
+        #objectContainerView, #mapsContainerView, #geometryContainerView {
+            right: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: scroll;
+        }
+
+        #cameraInfoPanel {
+            position: absolute;
+            z-index: 1;
+            bottom: 20px;
+            left: 20px;
+            width: 100%;
+            height: 50px;
+
+        }
+
+        #mask {
+            position: absolute;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            /*align-items: center;*/
+            left: 0;
+            /*align-content: center;*/
+            /*align-items: center;*/
+            /*justify-content: center;*/
+            /*justify-items: center;*/
+        }
+
+        #mask img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+
+        #btnExport {
+            position: absolute;
+            z-index: 1;
+            width: 4%;
+            height: 8.5%;
+            top: 2%;
+            right: 1%;
+        }
+
+        #userPage {
+            position: absolute;
+            z-index: 1;
+            width: 4%;
+            height: 7%;
+            top: 3%;
+            right: 6%;
+            border: orange solid 2px;
+            border-radius: 10px;
+        }
+
+    </style>
+    <!--    <link href="css/main.css" rel="stylesheet" type="text/css" />-->
+    <!--    <link rel="stylesheet" type="text/css" href="main.css"/>-->
+    <script src="./libs/three.min.js"></script>
+    <script src="./libs/OrbitControls.js"></script>
+    <script src="./libs/stats.min.js"></script>
+    <script src="./libs/jquery-3.5.1.min.js"></script>
+    <script src="./libs/vue.min.js"></script>
+</head>
+<body>
+<!--<view id="controlFloor">-->
+<!--      <div id="stats-output"></div>-->
+<!--  <input type="range" min="10" max="300" value="100" step="10" οnchange="showValue(this.value)" style="">-->
+<div id="geometryPanel">
+    形状面板
+    <view id="geometryContainerView"></view>
+</div>
+<div id="mapPanel">
+    贴图面板
+    <view id="mapsContainerView"></view>
+</div>
+<!--    <view class="leftArea">-->
+<img id="btnPlay" onclick="playOrStop(src)" src="./img/play.png">
+<img id="btnExport" onclick="Export()" src="img/export.png">
+<div id="objectPanel">
+    已建对象面板
+    <ul id="objectContainerView">
+        <template v-for="item in objects">
+            <li :id="item.getElementId()" class="activeObject" onclick="activateTargetMesh(this,id)">{{item.name}}</li>
+        </template>
+    </ul>
+    <img id="btnRemove" onclick="removeObject()" src="img/del.png">
+</div>
+
+<view id="cameraInfoPanel">this is camera info</view>
+<a href="W3DA_Page_3.html"><img id="userPage" src="img/me.png"></a>
+<!--    </view>-->
+<!--</view>-->
+<canvas id="webglcanvas"></canvas>
+<view id="mask"><img onclick="removeMask()" src="img/play.png"></view>
+
+
+<script src="geometryElements.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

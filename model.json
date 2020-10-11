@@ -1,0 +1,65 @@
+{
+  "object": {
+    "name": "Box"
+  },
+  "animations": [
+    {
+      "name": "default",
+      "fps": 24,
+      "tracks": [
+        {
+          "type": "vector3",
+          "name": "Box.position",
+          "keys": [
+            {
+              "value": [
+                0,
+                0,
+                0
+              ],
+              "time": 0
+            },
+            {
+              "value": [
+                -100,
+                0,
+                0
+              ],
+              "time": 50
+            }
+          ]
+        },
+        {
+          "type": "quaternion",
+          "name": "Box.quaternion",
+          "keys": [
+            {
+              "value": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "time": 0
+            }
+          ]
+        },
+        {
+          "type": "color",
+          "name": "Box.material.color",
+          "keys": [
+            {
+              "value": [
+                1,
+                0,
+                0,
+                1
+              ],
+              "time": 20
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

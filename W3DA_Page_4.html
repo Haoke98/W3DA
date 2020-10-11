@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>register.html</title>
+    <meta content="keyword1,keyword2,keyword3" http-equiv="keywords">
+    <meta content="this is my page" http-equiv="description">
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <LINK href="favicon.ico" rel="Shortcut icon"/>
+    <link href="register.css" rel="stylesheet" type="text/css"/>
+    <style>
+        body {
+            background-image: url('img/bg7.jpg');
+            text-align: center;
+            background-repeat: repeat-x;
+            background-position: 0px 0px;
+            background-size: 100%;
+        }
+
+        .table {
+            border: 1px solid #000000;
+            background: rgba(0, 0, 0, 0.7);
+            width: 810px;
+        }
+
+        tr {
+            font-family: 微软雅黑;
+            font-weight: 800;
+            color: #f9ac06;
+        }
+
+        input {
+            border: 1px solid #000000;
+            color: #f9ac06;
+            font-weight: bold;
+            font-family: "微软雅黑";
+            height: 35px;
+            line-height: 30px;
+            border-radius: 5px;
+        }
+
+        .submit {
+            width: 150px;
+            height: 40px;
+            cursor: hand;
+            font-size: 20px;
+            color: #ffffff;
+            background-color: #f9ac06;
+            border: 0px;
+        }
+
+        .thead {
+            height: 40px;
+            font-family: "微软雅黑";
+            font-size: 30px;
+            font-weight: 700;
+            color: #f9ac06;
+            background: #000000;
+        }
+
+        #3 {
+            margin-bottom: 100px;
+        }
+
+        #img {
+            border: orange solid 2px;
+            border-radius: 10px;
+        }
+    </style>
+    <script src="register.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        function play() {
+            document.getElementById("menu_item").style.display = "";
+        }
+
+        function noplay() {
+            document.getElementById("menu_item").style.display = "none";
+        }
+
+        function passwd() {
+            var pass = document.getElementById("password").value;
+            var tip = document.getElementById("tip");
+            if (pass.length < 4) {
+                document.getElementById("meter").value = pass.length;
+                tip.innerHTML = "差";
+            } else if (pass.length <= 8) {
+                document.getElementById("meter").value = pass.length;
+                tip.innerHTML = "中";
+            } else {
+                document.getElementById("meter").value = pass.length;
+                tip.innerHTML = "高";
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="3" style="position: relative; top: 100px; z-index: 3;">
+    <form action="register.html" id="f1" method="post">
+        <table align="center" cellspacing="0" class="table">
+            <tr class="thead">
+                <td align="center">
+                    新用户注册
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table align="center" border="0px" border="0px" cellpadding="5px" cellspacing="0"
+                           id="registertable">
+                        <tr>
+                        <tr>
+                            <td align="right">
+                                昵称：
+                            </td>
+                            <td align="left">
+                                <input name="username" placeholder="用户名" required type="text"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                头像：
+                            </td>
+                            <td align="left">
+                                <input accept="image/jpeg" id="f" onchange="show()" type="file"/><span><img height="60"
+                                                                                                            id="img"
+                                                                                                            src="img/W3DAlogo.png"
+                                                                                                            width="60"/></span>
+                                <script>
+                                    function show() {
+                                        var file = document.getElementById("f").files[0];
+                                        var fileReader = new FileReader();
+                                        fileReader.readAsDataURL(file);
+                                        fileReader.onload = function () {
+                                            document.getElementById("img").src = fileReader.result;
+                                        }
+                                    }
+                                </script>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                密 码：
+                            </td>
+                            <td align="left">
+                                <input id="password" name="password" onkeyup="passwd()" placeholder="密码" required
+                                       type="password"/>
+                                <meter high="8" id="meter" low="5" max="10" min="1" value="0">
+                                </meter>
+                                <span id="tip"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                密码确认：
+                            </td>
+                            <td align="left">
+                                <input name="password2" placeholder="确认密码" required type="password"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                邮 箱：
+                            </td>
+                            <td align="left">
+                                <input id="email" name="email" placeholder="邮箱" required type="email"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                手 机：
+                            </td>
+                            <td align="left">
+                                <input id="p" name="phone" pattern="[0-9]{11}" placeholder="请输入11位数字" type="tel"/>
+                            </td>
+                        </tr>
+
+
+                        <tr height="60px">
+                            <td align="center" colspan="2">
+                                <input class="submit" id="btn1" onclick="window.location.replace('W3DA_Page_2.html')"
+                                       onmousemove="changeBgColor('btn1')" onmouseout="recoverBgColor('btn1')"
+                                       type="button"
+                                       value="转到登录"/> <input accesskey="enter" class="submit" formmethod="post" id="btn"
+                                                             onmousemove="changeBgColor('btn')"
+                                                             onmouseout="recoverBgColor('btn');" type="submit"
+                                                             value="注册"/>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
