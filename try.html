@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lunbo</title>
+</head>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .d0 {
+        width: 100px;
+        height: 100px;
+        margin: 100px;
+        border: 1px solid red;
+        position: relative;
+    }
+
+    .d1 {
+        width: 400px;
+        height: 100px;
+        position: absolute;
+        animation: lunbo 5s linear infinite;
+        animation-direction: normal;
+    }
+
+    .d2 {
+        background: green;
+    }
+
+    .d3 {
+        background: red;
+    }
+
+    .d4 {
+        background: blue;
+    }
+
+    .d2, .d3, .d4 {
+        width: 100px;
+        height: 100px;
+        float: left; /*display:inline-block;*/
+    }
+
+    @keyframes lunbo {
+        0% {
+            left: 0px;
+        }
+        55% {
+            left: -100px;
+        }
+        75% {
+            left: -200px;
+        }
+        100% {
+            left: -300px;
+        }
+    }
+</style>
+<body>
+<div class="d0"><!--100-->
+    <div class="d1"><!--400-->
+        <div class="d2">1</div><!--100-->
+        <div class="d3">2</div>
+        <div class="d4">3</div>
+        <div class="d2">1</div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,95 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c727590a-0a35-44d3-aebd-995bd9d5d56c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/earth.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/web.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyTHREE.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Lib/site-packages/setuptools-40.8.0-py3.7.egg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Lib/site-packages/setuptools.pth" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/Activate.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/activate" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/activate.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/deactivate.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/easy_install-3.7-script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/easy_install-3.7.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/easy_install-script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/easy_install.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip-script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip3-script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip3.7-script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip3.7.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip3.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/python.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/Scripts/pythonw.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/venv/pyvenv.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrashBin/web.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/W3DA_Page_1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/W3DA_Page_2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/W3DA_Page_3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/W3DA_Page_4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/envMapTest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/error.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/geometryElements.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/W3DAlogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/ball.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/bg1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/bg10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/bg11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/bg2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/bg3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/bg4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/bg5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/bg6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/bg7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/bg8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/bg9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/cloudEarthMap.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/cube.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/del.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/emoji.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/export.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/good.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/iconfont icon-ditu (.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/iconfont icon-ditu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/iconfont icon-shebei.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/iconfont_voice.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/land_ocean_ice_cloud_2048.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/me.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/nx.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/ny.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/px.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/py.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/pz.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/ring.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/stop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/works.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/just try.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/just_try.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/OrbitControls.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/jquery-3.5.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/stats.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/three.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/vue.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/new_file.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/register.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/register.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test3_KeyframeTrack.html" afterDir="false" />
+    <list default="true" id="b7889159-e17d-4ad8-80c4-54c562965c4f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/web3Da.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tagMaker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/try.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/earth.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/web.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Lib/site-packages/setuptools-40.8.0-py3.7.egg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Lib/site-packages/setuptools.pth" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/Activate.ps1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/activate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/activate.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/deactivate.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/easy_install-3.7-script.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/easy_install-3.7.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/easy_install-script.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/easy_install.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip-script.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip3-script.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip3.7-script.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip3.7.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip3.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/python.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/pythonw.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/venv/pyvenv.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrashBin/web.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/W3DA_Page_1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/W3DA_Page_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/W3DA_Page_2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/geometryElements.js" beforeDir="false" afterPath="$PROJECT_DIR$/geometryElements.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/ball.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/ball.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/cube.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/cube.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/del.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/del.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/export.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/export.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/me.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/me.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/play.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/play.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/py.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/ring.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/ring.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/stop.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/stop.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/three.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/three.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/vue.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,30 +57,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="package.json" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="PREVIOUS_COMMIT_AUTHORS">
-      <list>
-        <option value="sadam &lt;1903249375&gt;" />
-      </list>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="F:\GLproject\codingDream-master\day09\canvas\earth\.idea" />
-      </set>
-    </option>
-  </component>
-  <component name="ProjectId" id="1hs4iTtCtcgUKTpIkDJOvjVryGf" />
+  <component name="ProjectId" id="1jhh8df4XS4durXiGNlUSP8sP4k" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -130,27 +72,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_package_manager_path" value="npm" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\GLproject\codingDream-master\day09\canvas\earth\TrashBin" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\GLproject\codingDream-master\day09\canvas\earth\img" />
-    </key>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -169,103 +99,28 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c727590a-0a35-44d3-aebd-995bd9d5d56c" name="Default Changelist" comment="" />
-      <created>1600786593037</created>
+      <changelist id="b7889159-e17d-4ad8-80c4-54c562965c4f" name="Default Changelist" comment="" />
+      <created>1604262072816</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1600786593037</updated>
-      <workItem from="1600786594404" duration="4999000" />
-      <workItem from="1600861285987" duration="13991000" />
-      <workItem from="1600913861763" duration="78000" />
-      <workItem from="1600917575117" duration="6253000" />
-      <workItem from="1601017954353" duration="6453000" />
-      <workItem from="1601094707172" duration="2846000" />
-      <workItem from="1601104624990" duration="19287000" />
-      <workItem from="1601269044398" duration="6331000" />
-      <workItem from="1601316898141" duration="1873000" />
-      <workItem from="1601384424930" duration="3519000" />
-      <workItem from="1601488591428" duration="7509000" />
-      <workItem from="1601571835916" duration="3359000" />
-      <workItem from="1601618543451" duration="30668000" />
-      <workItem from="1601786255795" duration="1483000" />
-      <workItem from="1601879567600" duration="9524000" />
-      <workItem from="1601956001500" duration="4899000" />
-      <workItem from="1602035167472" duration="12469000" />
-      <workItem from="1602388477017" duration="6044000" />
-      <workItem from="1602397294882" duration="261000" />
+      <updated>1604262072816</updated>
+      <workItem from="1604262090741" duration="2023000" />
+      <workItem from="1604292475209" duration="16455000" />
+      <workItem from="1604365017480" duration="27201000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="1">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="roots">
-                    <value>
-                      <list>
-                        <option value="$PROJECT_DIR$" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="initial commit by sadam" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit by sadam" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="367" y="11" key="CommitChangelistDialog2" timestamp="1602397527376">
+    <state x="-104" y="163" width="1350" height="648" key="DiffContextDialog" timestamp="1604302088607">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="367" y="11" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1602397527376" />
-    <state x="549" y="158" key="FileChooserDialogImpl" timestamp="1602396428749">
+    <state x="-104" y="163" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1604302088607" />
+    <state x="449" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1604365019733">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="549" y="158" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1602396428749" />
-    <state x="79" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1601956236757">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="79" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1601956236757" />
-    <state x="560" y="107" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1601269182560">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="560" y="107" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.834@0.0.1536.834" timestamp="1601269182560" />
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1601708540730">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1601708540730" />
+    <state x="449" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1604365019733" />
   </component>
 </project>

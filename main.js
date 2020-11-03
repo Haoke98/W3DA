@@ -17,12 +17,19 @@ let scene,     //场景
 let curr_texture = "https://mmbiz.qlogo.cn/mmbiz_jpg/lBSHibv6GicCZ6Qy6pPpoJOoVbzP7o4uUpwnO62dic1C9Iz5du3jhxGNPaY5SVxm93eP46d2uUCnTvFmhTibHrDzpg/0?wx_fmt=jpeg";
 let earth_radius = 100;
 let WIDTH_SEGMENTS = 30, HEIGHT_SEGMENTS = 30;
-let curr_mesh;
-var i = 0;
+let curr_mesh = new THREE.Mesh(new THREE.CubeGeometry(50, 100, 150));
+var objectCount = 0;
 let play = false;
 let clock = new THREE.Clock();
 let mixer;
 let AnimationAction;
+let curr_key = 1;
+let key_max = 25;
+let activeRender = false;
+let timeTrack = [5];
+let objectTrack = {
+    5: []
+};
 // var curve = new THREE.CatmullRomCurve3([
 //     new THREE.Vector3(-60, 0, 80),
 //     new THREE.Vector3(-6, 0, -10),
@@ -46,16 +53,59 @@ group = new THREE.Group();
 scene.add(group);  //将组合添加进场景中渲染
 initXYZ();
 mainPageReady();
-// KeyFrameTrack();
-windowAddMouseWheel();
-
-
 animate();  //渲染动画应该放在最后
+activeRenderer();
+
+
+function ChangeX(x) {
+    curr_mesh.position.x = x;
+    activeRenderer();
+}
+
+
+function ChangeY(y) {
+    curr_mesh.position.y = y;
+    activeRenderer();
+}
+
+function ChangeZ(z) {
+    curr_mesh.position.z = z;
+    activeRenderer();
+}
+
+function setCurrObject(currObject) {
+    $('#currObjectName').attr('value', currObject.name);
+    document.getElementById('currObjectX').setAttribute('value', currObject.position.x);
+    document.getElementById('currObjectY').setAttribute('value', currObject.position.y);
+    document.getElementById('currObjectZ').setAttribute('value', currObject.position.z);
+    // $('#currObjectX').attr('value',);
+    // $('#currObjectY').attr('value',currObject.position.y);
+    // $('#currObjectZ').attr('value',currObject.position.z);
+}
+
+function activeRenderer() {
+    console.log("activated");
+    if (activeRender) {
+
+    } else {
+        activeRender = !activeRender;
+        setTimeout(function () {
+            activeRender = !activeRender
+        }, 50)
+    }
+}
+
+/*用来显示*/
+function showValue(value) {
+    document.getElementById('curr_key').setAttribute('value', value);
+    curr_key = parseInt(value);
+}
 
 
 function initCamera(canvas_rect) {
     camera = new THREE.PerspectiveCamera(CAMERA_FOV, canvas_rect.width / canvas_rect.height, CAMERA_NEAR, CAMERA_FAR);
-    camera.position.set(CAMERA_FAR / 2, CAMERA_FAR / 2, CAMERA_FAR / 2);
+    let x = 30;
+    camera.position.set(CAMERA_FAR / x, CAMERA_FAR / x, CAMERA_FAR / x);
     orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
 
     // orbitControls.target = new THREE.Vector3(0, 0, 0);//控制焦点
@@ -75,6 +125,11 @@ function initCamera(canvas_rect) {
     orbitControls.maxDistance = 10000;
     //是否开启右键拖拽
     orbitControls.enablePan = true;
+
+    orbitControls.addEventListener('change', function () {
+        // console.log("orbit controler has changed.")
+        activeRenderer()
+    });
 }
 
 function initRenderer(canvas_rect) {
@@ -88,23 +143,26 @@ function initRenderer(canvas_rect) {
         premultipliedAlpha: false, // true/false 表示是否可以设置像素深度（用来度量图像的分辨率）,
         maxLights: 3,              // 最大灯光数,
         stencil: false             // false/true 表示是否使用模板字体或图案
-        // */
+        //
     });
     // 指定渲染器宽高
     renderer.setSize(canvas_rect.width, canvas_rect.height);
 }
 
-function playOrStop(src) {
-    let PLAY_ICON = './img/play.png';
-    let STOP_ICON = './img/stop.png';
+function playOrStop() {
+    // let PLAY_ICON = './img/play.png';
+    // let STOP_ICON = './img/stop.png';
     let btnPlay = document.getElementById('btnPlay');
     if (play) {
         //正处于运动状态(stop.png)，需要变成不运动状态（play.png)
-        btnPlay.setAttribute('src', PLAY_ICON);
+        btnPlay.setAttribute('class', 'stop');
     } else {
-        btnPlay.setAttribute('src', STOP_ICON);
+        btnPlay.setAttribute('class', 'play');
     }
     play = !play;
+    KeyFrameTrack();
+    // activeRenderer();
+    activeRender = !activeRender;
     AnimationAction.play();
 }
 
@@ -123,6 +181,7 @@ function mainPageReady() {
     //     return '<view onclick="CreateGeometry()" data-type="' + panelElement.data_type + '"><img src="' + panelElement.src + '">' + panelElement.name + '</view>';
     // });
     initGeometryElements('geometryContainerView', geometryElements);
+    initGeometryElements2('tool_bar', geometryElements);
     initMap();
 
 }
@@ -130,13 +189,13 @@ function mainPageReady() {
 
 function initMap() {
     var xhr = new XMLHttpRequest();//第一步：建立所需的对象
-    xhr.open('GET', '/W3DA/getMaps', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+    xhr.open('GET', 'https://x.izbasarweb.xyz/W3DA/getMaps', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
     xhr.send();//第三步：发送请求  将请求参数写在URL中
     /**
      * 获取数据后的处理程序
      */
     xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
+        if (xhr.readyState === 4 && xhr.status === 200) {
             var json = JSON.parse(xhr.responseText);//获取到json字符串，还需解析
             console.log(json, json.objects);
             initPanel("mapsContainerView", json.objects, function (panelElement) {
@@ -150,11 +209,19 @@ function initGeometryElements(container_id, elements_dic) {
     let container = document.getElementById(container_id);
     let innerHTMLContext = "";
     for (key in elements_dic) {
-        innerHTMLContext += '<view onclick="CreateGeometry(dataset.key)" data-key="' + key + '"><img src="' + elements_dic[key].src + '">' + key + '</view>';
+        innerHTMLContext += '<view class="geometry" onclick="CreateGeometry(dataset.key)" data-key="' + key + '"><img class="geometry" src="' + elements_dic[key].src + '">' + key + '</view>';
     }
     container.innerHTML = innerHTMLContext;
 }
 
+function initGeometryElements2(container_id, elements_dic) {
+    let container = document.getElementById(container_id);
+    let innerHTMLContext = "";
+    for (key in elements_dic) {
+        innerHTMLContext += '<img src="' + elements_dic[key].src + '" onclick="CreateGeometry(dataset.key)" data-key="' + key + '">';
+    }
+    container.innerHTML = innerHTMLContext;
+}
 
 function initPanel(panel_id, panel_elements, callback) {
     let panel = document.getElementById(panel_id);
@@ -189,11 +256,31 @@ function initXYZ() {
         liney.rotation.y = 90 * Math.PI / 180;  // 将线旋转90度
         scene.add(liney);
     }
-    var axes = new THREE.AxisHelper(500);
+    let AxisLength = 500;
+    var axes = new THREE.AxisHelper(AxisLength);
     scene.add(axes);
+
+    let spriteX = createSpriteText("X", "#ffa905", "60px");
+    scene.add(spriteX);
+// 控制精灵大小，比如可视化中精灵大小表征数据大小
+    spriteX.scale.set(100, 100, 1); //// 只需要设置x、y两个分量就可以
+    spriteX.position.set(AxisLength, 0, 0);
+
+    let spriteY = createSpriteText("Y", "#ffa905", "60px");
+    scene.add(spriteY);
+// 控制精灵大小，比如可视化中精灵大小表征数据大小
+    spriteY.scale.set(100, 100, 1); //// 只需要设置x、y两个分量就可以
+    spriteY.position.set(0, AxisLength, 0);
+
+    let spriteZ = createSpriteText("Z", "#ffa905", "60px");
+    scene.add(spriteZ);
+// 控制精灵大小，比如可视化中精灵大小表征数据大小
+    spriteZ.scale.set(100, 100, 1); //// 只需要设置x、y两个分量就可以
+    spriteZ.position.set(0, 0, AxisLength);
+
 }
 
-let ballObjectCount = 0;
+
 document.onkeydown = function (event) {
     let object = camera;
     let delta = 10;
@@ -228,32 +315,6 @@ document.onkeydown = function (event) {
 
 let cameraZoomInOutFactor = 10;
 
-function windowAddMouseWheel() {
-    var scrollFunc = function (e) {
-        e = e || window.event;
-        if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件
-            if (e.wheelDelta > 0) { //当滑轮向上滚动时
-                cameraZoomIn(cameraZoomInOutFactor);
-            }
-            if (e.wheelDelta < 0) { //当滑轮向下滚动时
-                cameraZoomIn(0 - cameraZoomInOutFactor);
-            }
-        } else if (e.detail) {  //Firefox滑轮事件
-            if (e.detail > 0) { //当滑轮向上滚动时
-                cameraZoomIn(cameraZoomInOutFactor);
-            }
-            if (e.detail < 0) { //当滑轮向下滚动时
-                cameraZoomIn(0 - cameraZoomInOutFactor);
-            }
-        }
-    };
-    //给页面绑定滑轮滚动事件
-    if (document.addEventListener) {
-        document.addEventListener('DOMMouseScroll', scrollFunc, false);
-    }
-//滚动滑轮触发scrollFunc方法
-    window.onmousewheel = document.onmousewheel = scrollFunc;
-}
 
 let cameraInfoPanelElement = document.getElementById('cameraInfoPanel');
 
@@ -285,62 +346,58 @@ function changeTexture(src) {
     curr_mesh.setMaterialMap_url(absolute_src);
 }
 
-var example1 = new Vue({
-    el: '#objectContainerView',
-    data: {
-        objects: []
-    }
-});
 
 function CreateGeometry(key) {
     let position;
-    if (curr_mesh == undefined) {
-        position = {x: 0, y: 0, z: 0}
-    } else {
-        position = curr_mesh.position;
-    }
-    let objectNameStr = geometryElements[key].createFunction();
-    curr_mesh.position.set(position.x + 200, position.y, 100);
-    group.add(curr_mesh);
-    objectNameStr += i++;
-    curr_mesh.name = objectNameStr;
-    curr_mesh.elementId = curr_mesh.getElementId();
-    makeUnActive();
-    example1.objects.push(curr_mesh);
-    // let view_id = curr_mesh.getElementId();
-    // let htmlContext = '<view id="' + view_id + '" class="activeObject" onclick="activateTargetMesh(this,id)">' + objectNameStr +'X:<input type="text" value="'+position.x+'"/>'+'Y:<input type="text" value="'+position.y+'"/>'+'Z:<input type="text" value="'+position.z+'"/></view>';
-    // let panel = document.getElementById("objectContainerView");
-    // panel.innerHTML += htmlContext;
-    KeyFrameTrack();
+    position = curr_mesh.position;
+    let newMesh = geometryElements[key].createFunction();
+    newMesh.position.set(position.x + 200, position.y, 100);
+    newMesh.name += objectCount++;
+    let objectContainer = document.getElementById('objectContainerView');
+    let newChildElement = document.createElement('view');
+    newChildElement.setAttribute('name', newMesh.name);
+    newChildElement.innerHTML = newMesh.name;
+    newChildElement.setAttribute('onClick', 'activateTargetMesh1("' + newMesh.name + '")');
+    objectContainer.insertAdjacentElement('beforeend', newChildElement);
+    activateTargetMesh(newMesh);
+    activeRenderer();
 }
 
-function activateTargetMesh(curr_element, id) {
-    // var id = event.currentTarget.getAttribute('id');
-    // var curr_element = document.getElementById(id);
-    makeUnActive();
-    curr_element.className = 'activeObject';
-    var objectUUid = id.split("|")[0];
-    var objectName = id.split("|")[1];
-    curr_mesh = scene.getObjectByName(objectName);
-    console.log(curr_mesh, curr_mesh.material, curr_mesh.material.map);
+function activateTargetMesh1(name) {
+    var mesh = scene.getObjectByName(name);
+    console.log(name, mesh);
+    activateTargetMesh(mesh);
+}
+
+function activateTargetMesh(mesh) {
+    let activeElement = document.getElementsByName(curr_mesh.name)[0];
+    let targetElement = document.getElementsByName(mesh.name)[0];
+    if (activeElement !== undefined) {
+        activeElement.setAttribute('class', 'unActiveObject');
+    }
+
+    targetElement.setAttribute('class', 'activeObject');
+    curr_mesh = mesh;
+    group.add(curr_mesh);
+    setCurrObject(curr_mesh);
 }
 
 function getCurrentElement() {
     return document.getElementById(event.currentTarget.getAttribute('id'));
 }
 
-function makeUnActive() {
-    console.log($(".activeObject"));
-    let activeElement = document.getElementsByClassName('activeObject').item(0);
-    if (activeElement != null) {
-        activeElement.setAttribute('class', 'unActiveObject')
-    }
-}
 
 function removeObject() {
-    let id = curr_mesh.getElementId();
-    document.getElementById(id).remove();
+    let currActiveElement = document.getElementsByName(curr_mesh.name)[0];
+    let objectContainer = document.getElementById('objectContainerView');
+    objectContainer.removeChild(currActiveElement);
     group.remove(curr_mesh);
+
+    let newActiveElement = objectContainer.lastElementChild;
+    newCurrMesh = scene.getObjectByName(newActiveElement.getAttribute('name'));
+    console.log("will activate object:", newCurrMesh, newActiveElement);
+    activateTargetMesh(newCurrMesh);
+    activeRenderer();
 }
 
 window.onresize = function () {
@@ -456,8 +513,7 @@ function KeyFrameTrack() {
     var posTrack = new THREE.KeyframeTrack(curr_mesh.name + '.position', times, values);
     var colorTrack = new THREE.KeyframeTrack(curr_mesh.name + '.material.color', [10, 20], [1, 0, 0, 0, 0, 1]);
     var scaleTrack = new THREE.KeyframeTrack(curr_mesh.name + '.scale', [0, 20], [1, 1, 1, 3, 3, 3]);
-    var duration = 20;
-    var clip = new THREE.AnimationClip("default剪辑clip对象", duration, [posTrack, colorTrack, scaleTrack]);
+    var clip = new THREE.AnimationClip("default剪辑clip对象", key_max, [posTrack, colorTrack, scaleTrack]);
     mixer = new THREE.AnimationMixer(group);
     AnimationAction = mixer.clipAction(clip);
     AnimationAction.timeScale = 3;
@@ -482,7 +538,9 @@ function onWindowResize() {
 function animate() {
     // 请求运动帧
     requestAnimationFrame(animate);
-    render()
+    if (activeRender) {
+        render()
+    }
 }
 
 // 地球旋转逻辑函数
@@ -501,10 +559,10 @@ function render() {
         // group.rotation.y -= 0.030;
         // group.rotation.x +=0.010;
         // group.rotation.z = 200;
-        // if(i>=points.length){
-        //   i=0;
+        // if(objectCount>=points.length){
+        //   objectCount=0;
         // }
-        // let point = points[i++];
+        // let point = points[objectCount++];
         // console.log(point);
         // curr_mesh.position.set(point.x,point.y,point.z);
         // curr_mesh.position.x = point.x;
@@ -514,7 +572,7 @@ function render() {
         // curr_mesh.position.x +=1;
         mixer.update(clock.getDelta());
     }
-
+    setCurrObject(curr_mesh);
     orbitControls.update();
     // 核心 递归调用
 }
