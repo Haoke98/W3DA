@@ -17,7 +17,8 @@ let scene,     //场景
 let curr_texture = "https://mmbiz.qlogo.cn/mmbiz_jpg/lBSHibv6GicCZ6Qy6pPpoJOoVbzP7o4uUpwnO62dic1C9Iz5du3jhxGNPaY5SVxm93eP46d2uUCnTvFmhTibHrDzpg/0?wx_fmt=jpeg";
 let earth_radius = 100;
 let WIDTH_SEGMENTS = 30, HEIGHT_SEGMENTS = 30;
-let curr_mesh = new THREE.Mesh(new THREE.CubeGeometry(50, 100, 150));
+// let SELECTED = new THREE.Mesh(new THREE.CubeGeometry(50, 100, 150));
+let SELECTED = null;
 var objectCount = 0;
 let play = false;
 let clock = new THREE.Clock();
@@ -30,6 +31,19 @@ let timeTrack = [5];
 let objectTrack = {
     5: []
 };
+
+function KeyFrameTrack() {
+    var times = [0, 5, 10, 15, 20];
+    var values = [0, 0, 0, 150, 0, 0, 0, 100, 0, 0, 0, 0, 0, 200, 0];
+    var posTrack = new THREE.KeyframeTrack(SELECTED.name + '.position', times, values);
+    var colorTrack = new THREE.KeyframeTrack(SELECTED.name + '.material.color', [10, 20], [1, 0, 0, 0, 0, 1]);
+    var scaleTrack = new THREE.KeyframeTrack(SELECTED.name + '.scale', [0, 20], [1, 1, 1, 3, 3, 3]);
+    var clip = new THREE.AnimationClip("default剪辑clip对象", key_max, [posTrack, colorTrack, scaleTrack]);
+    mixer = new THREE.AnimationMixer(group);
+    AnimationAction = mixer.clipAction(clip);
+    AnimationAction.timeScale = 3;
+}
+
 // var curve = new THREE.CatmullRomCurve3([
 //     new THREE.Vector3(-60, 0, 80),
 //     new THREE.Vector3(-6, 0, -10),
@@ -42,6 +56,9 @@ let objectTrack = {
 // let points = curve.getPoints(100);
 // console.log(points);
 
+function setKey() {
+    setKeyForCurrObjects(curr_key);
+}
 
 canvas = document.getElementById('webglcanvas');
 let canvas_rect = canvas.getBoundingClientRect();
@@ -58,18 +75,18 @@ activeRenderer();
 
 
 function ChangeX(x) {
-    curr_mesh.position.x = x;
+    SELECTED.position.x = x;
     activeRenderer();
 }
 
 
 function ChangeY(y) {
-    curr_mesh.position.y = y;
+    SELECTED.position.y = y;
     activeRenderer();
 }
 
 function ChangeZ(z) {
-    curr_mesh.position.z = z;
+    SELECTED.position.z = z;
     activeRenderer();
 }
 
@@ -78,9 +95,6 @@ function setCurrObject(currObject) {
     document.getElementById('currObjectX').setAttribute('value', currObject.position.x);
     document.getElementById('currObjectY').setAttribute('value', currObject.position.y);
     document.getElementById('currObjectZ').setAttribute('value', currObject.position.z);
-    // $('#currObjectX').attr('value',);
-    // $('#currObjectY').attr('value',currObject.position.y);
-    // $('#currObjectZ').attr('value',currObject.position.z);
 }
 
 function activeRenderer() {
@@ -99,6 +113,7 @@ function activeRenderer() {
 function showValue(value) {
     document.getElementById('curr_key').setAttribute('value', value);
     curr_key = parseInt(value);
+    showCurrentKey(curr_key);
 }
 
 
@@ -125,6 +140,8 @@ function initCamera(canvas_rect) {
     orbitControls.maxDistance = 10000;
     //是否开启右键拖拽
     orbitControls.enablePan = true;
+
+    orbitControls.enableKeys = false;
 
     orbitControls.addEventListener('change', function () {
         // console.log("orbit controler has changed.")
@@ -281,7 +298,7 @@ function initXYZ() {
 }
 
 
-document.onkeydown = function (event) {
+canvas.onkeydown = function (event) {
     let object = camera;
     let delta = 10;
     console.log('keyCode', event.keyCode);
@@ -343,15 +360,24 @@ function changeTexture(src) {
     console.log(window.location, window.location.origin, src);
     var absolute_src = window.location.origin + src;
     console.log(absolute_src);
-    curr_mesh.setMaterialMap_url(absolute_src);
+    SELECTED.setMaterialMap_url(absolute_src);
 }
 
 
 function CreateGeometry(key) {
-    let position;
-    position = curr_mesh.position;
+    let position = {x: 0, y: 0, z: 0};
+    let distance = 100;
     let newMesh = geometryElements[key].createFunction();
-    newMesh.position.set(position.x + 200, position.y, 100);
+    newMesh.position = position;
+    if (SELECTED) {
+        console.log("this is a new mesh has been created just now.:", newMesh);
+        // distance = 1.25*(SELECTED.geometry.boundingSphere.radius + newMesh.geometry.boundingSphere.radius);
+        position.x = SELECTED.position.x + distance;
+        // position.y = SELECTED.position.y+distance;
+        position.z = SELECTED.position.z + distance;
+    }
+    newMesh.position = position;
+    console.log("this is new mesh its position has been initillized:", newMesh);
     newMesh.name += objectCount++;
     let objectContainer = document.getElementById('objectContainerView');
     let newChildElement = document.createElement('view');
@@ -366,20 +392,30 @@ function CreateGeometry(key) {
 function activateTargetMesh1(name) {
     var mesh = scene.getObjectByName(name);
     console.log(name, mesh);
+    console.log(name, mesh);
     activateTargetMesh(mesh);
 }
 
 function activateTargetMesh(mesh) {
-    let activeElement = document.getElementsByName(curr_mesh.name)[0];
-    let targetElement = document.getElementsByName(mesh.name)[0];
-    if (activeElement !== undefined) {
-        activeElement.setAttribute('class', 'unActiveObject');
+    if (SELECTED) {
+        SELECTED.material.color.setHex(SELECTED.currentHex);
+        let activeElement = document.getElementsByName(SELECTED.name)[0];
+        if (activeElement !== undefined) {
+            activeElement.setAttribute('class', 'unActiveObject');
+        }
     }
-
-    targetElement.setAttribute('class', 'activeObject');
-    curr_mesh = mesh;
-    group.add(curr_mesh);
-    setCurrObject(curr_mesh);
+    if (mesh) {
+        let targetElement = document.getElementsByName(mesh.name)[0];
+        targetElement.setAttribute('class', 'activeObject');
+        console.log("this is selected:", mesh);
+        mesh.currentHex = mesh.material.color.getHex();//记录当前选择的颜色
+        mesh.material.color.set(0x66ff00);
+        SELECTED = mesh;
+    }
+    group.add(SELECTED);
+    console.log("this is a new mesh has been added the group just now:", SELECTED);
+    setCurrObject(SELECTED);
+    activeRenderer();
 }
 
 function getCurrentElement() {
@@ -388,10 +424,10 @@ function getCurrentElement() {
 
 
 function removeObject() {
-    let currActiveElement = document.getElementsByName(curr_mesh.name)[0];
+    let currActiveElement = document.getElementsByName(SELECTED.name)[0];
     let objectContainer = document.getElementById('objectContainerView');
     objectContainer.removeChild(currActiveElement);
-    group.remove(curr_mesh);
+    group.remove(SELECTED);
 
     let newActiveElement = objectContainer.lastElementChild;
     newCurrMesh = scene.getObjectByName(newActiveElement.getAttribute('name'));
@@ -507,18 +543,6 @@ function init() {
 }
 
 
-function KeyFrameTrack() {
-    var times = [0, 5, 10, 15, 20];
-    var values = [0, 0, 0, 150, 0, 0, 0, 100, 0, 0, 0, 0, 0, 200, 0];
-    var posTrack = new THREE.KeyframeTrack(curr_mesh.name + '.position', times, values);
-    var colorTrack = new THREE.KeyframeTrack(curr_mesh.name + '.material.color', [10, 20], [1, 0, 0, 0, 0, 1]);
-    var scaleTrack = new THREE.KeyframeTrack(curr_mesh.name + '.scale', [0, 20], [1, 1, 1, 3, 3, 3]);
-    var clip = new THREE.AnimationClip("default剪辑clip对象", key_max, [posTrack, colorTrack, scaleTrack]);
-    mixer = new THREE.AnimationMixer(group);
-    AnimationAction = mixer.clipAction(clip);
-    AnimationAction.timeScale = 3;
-}
-
 // // 监听鼠标移动方向， 从而确定地球南北半球
 // function onDocumentMouseMove(ev) {
 //     ev = ev || event;
@@ -540,6 +564,82 @@ function animate() {
     requestAnimationFrame(animate);
     if (activeRender) {
         render()
+    }
+}
+
+var mouse = new THREE.Vector2();
+
+function onDocumentMouseMove(event) {
+
+    event.preventDefault();
+
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+}
+
+// document.addEventListener('MouseMove',onDocumentMouseMove(e)) ;
+let spriteLastSelectedObject = createSpriteText("LastSelectedObject", "#93ff0c", "60px");
+
+var raycaster, lastSelectObj;
+raycaster = new THREE.Raycaster();
+
+function f() {
+    raycaster.setFromCamera(mouse, camera);
+    var intersects = raycaster.intersectObjects(scene.children);
+    if (intersects.length > 0) {
+        if (lastSelectObj !== intersects[0].object) {
+            // if ( lastSelectObj ) lastSelectObj.material.emissive.setHex( lastSelectObj.currentHex );
+            lastSelectObj = intersects[0].object;
+            let p = lastSelectObj.position;
+            let delta = 50;
+            var x = p.x + delta, y = p.y + delta, z = p.z + delta;
+            scene.add(spriteLastSelectedObject);
+            spriteLastSelectedObject.position.set(x, y, z);
+            // lastSelectObj.currentHex = lastSelectObj.material.emissive.getHex();
+            // lastSelectObj.material.emissive.setHex( 0xff0000 );
+        }
+    } else {
+        if (lastSelectObj)
+            lastSelectObj.material.emissive.setHex(lastSelectObj.currentHex);
+        lastSelectObj = null;
+    }
+}
+
+canvas.addEventListener('mousedown', onDocumentMouseDown, false);
+
+function onDocumentMouseDown(event) {
+
+    event.preventDefault();
+    // document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+    // document.addEventListener( 'mouseup', onDocumentMouseUp, false );
+    // document.addEventListener( 'mouseout', onDocumentMouseOut, false );
+
+    //鼠标点的拾取-当鼠标点击效果时，放在这里
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;//threejs坐标点的标准化
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+    var intersects = raycaster.intersectObjects(group.children);
+    //拾取物体数大于0时
+
+    console.log("mouse has been down:", intersects, scene.children);
+    if (intersects.length > 0) {
+
+        //获取第一个物体
+        if (SELECTED != intersects[0].object) {
+            //鼠标的变换
+            // document.body.style.cursor = 'pointer';
+            /*intersects[ 0 ].object.material.transparent=true;//透明度的变化
+             intersects[ 0 ].object.material.opacity=0.5;*/
+            // if (SELECTED) SELECTED.material.color.setHex(SELECTED.currentHex);
+            // SELECTED = intersects[0].object;
+            activateTargetMesh(intersects[0].object);
+        }
+    } else {
+        // document.body.style.cursor = 'auto';
+        // if (SELECTED) SELECTED.material.color.setHex(SELECTED.currentHex);//恢复选择前的默认颜色
+        // SELECTED = null;
+        activateTargetMesh(null);
     }
 }
 
@@ -572,7 +672,7 @@ function render() {
         // curr_mesh.position.x +=1;
         mixer.update(clock.getDelta());
     }
-    setCurrObject(curr_mesh);
+    if (SELECTED) setCurrObject(SELECTED);
     orbitControls.update();
     // 核心 递归调用
 }

@@ -2,50 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7889159-e17d-4ad8-80c4-54c562965c4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/web3Da.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tagMaker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/try.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/earth.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/web.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Lib/site-packages/setuptools-40.8.0-py3.7.egg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Lib/site-packages/setuptools.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/Activate.ps1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/activate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/activate.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/deactivate.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/easy_install-3.7-script.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/easy_install-3.7.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/easy_install-script.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/easy_install.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip-script.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip3-script.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip3.7-script.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip3.7.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/pip3.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/python.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/Scripts/pythonw.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/venv/pyvenv.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrashBin/web.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/W3DA_Page_1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/W3DA_Page_2.html" beforeDir="false" afterPath="$PROJECT_DIR$/W3DA_Page_2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/error.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geometryElements.js" beforeDir="false" afterPath="$PROJECT_DIR$/geometryElements.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/ball.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/ball.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/cube.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/cube.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/del.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/del.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/export.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/export.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/me.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/me.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/play.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/play.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/py.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/ring.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/ring.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/stop.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/stop.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/three.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/three.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/vue.min.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
     </list>
@@ -62,6 +19,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Sadam &lt;1903249375@qq.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jhh8df4XS4durXiGNlUSP8sP4k" />
@@ -106,21 +68,47 @@
       <updated>1604262072816</updated>
       <workItem from="1604262090741" duration="2023000" />
       <workItem from="1604292475209" duration="16455000" />
-      <workItem from="1604365017480" duration="27201000" />
+      <workItem from="1604365017480" duration="30937000" />
+      <workItem from="1604491667959" duration="862000" />
+      <workItem from="1604778348474" duration="19902000" />
+      <workItem from="1604891788282" duration="896000" />
     </task>
+    <task id="LOCAL-00001" summary="1.the tag has been made.&#10;2.the renderer has been controlled in unused time.&#10;3.the key track UI has been made.&#10;4.the object control panel has been made and control its position until now.&#10;5.the UI has been optimized for all devices just according to percentages.&#10;6.the Vue has been removed from all the Project. it is very less useful product for us.&#10;7.the initial position of the camera has been optimized.&#10;8.an event listener has been added to listen any action of the orbitControls.&#10;9.the geometryElements.js has been optimized.&#10;10.make it possible to add the X,Y,Z label on the Axis by using the Sprite.&#10;11.optimized the CreateGeometry function ,removeObject function and activateTargetMesh function .&#10;12.new add the setCurrObject function in order to show the some information of the current active mesh object on the UI .">
+      <created>1604425325801</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604425325801</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1.the tag has been made.&#10;2.the renderer has been controlled in unused time.&#10;3.the key track UI has been made.&#10;4.the object control panel has been made and control its position until now.&#10;5.the UI has been optimized for all devices just according to percentages.&#10;6.the Vue has been removed from all the Project. it is very less useful product for us.&#10;7.the initial position of the camera has been optimized.&#10;8.an event listener has been added to listen any action of the orbitControls.&#10;9.the geometryElements.js has been optimized.&#10;10.make it possible to add the X,Y,Z label on the Axis by using the Sprite.&#10;11.optimized the CreateGeometry function ,removeObject function and activateTargetMesh function .&#10;12.new add the setCurrObject function in order to show the some information of the current active mesh object on the UI ." />
+    <option name="LAST_COMMIT_MESSAGE" value="1.the tag has been made.&#10;2.the renderer has been controlled in unused time.&#10;3.the key track UI has been made.&#10;4.the object control panel has been made and control its position until now.&#10;5.the UI has been optimized for all devices just according to percentages.&#10;6.the Vue has been removed from all the Project. it is very less useful product for us.&#10;7.the initial position of the camera has been optimized.&#10;8.an event listener has been added to listen any action of the orbitControls.&#10;9.the geometryElements.js has been optimized.&#10;10.make it possible to add the X,Y,Z label on the Axis by using the Sprite.&#10;11.optimized the CreateGeometry function ,removeObject function and activateTargetMesh function .&#10;12.new add the setCurrObject function in order to show the some information of the current active mesh object on the UI ." />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="-104" y="163" width="1350" height="648" key="DiffContextDialog" timestamp="1604302088607">
+    <state x="556" y="7" key="CommitChangelistDialog2" timestamp="1604425323983">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="-104" y="163" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1604302088607" />
-    <state x="449" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1604365019733">
+    <state x="556" y="7" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1604425323983" />
+    <state x="46" y="164" width="1350" height="648" key="DiffContextDialog" timestamp="1604423240162">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="449" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1604365019733" />
+    <state x="46" y="164" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1604423240162" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1604425335532">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1604425335532" />
+    <state x="449" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1604891789460">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="449" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1604891789460" />
   </component>
 </project>

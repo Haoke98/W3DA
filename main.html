@@ -55,7 +55,7 @@
 
         #tool_bar img {
             height: 90%;
-            width: 3.3%;
+            width: 2.90%;
             margin-top: 0.1%;
             margin-bottom: 0.1%;
             margin-left: 1%;
@@ -447,11 +447,11 @@
     <p>当前对象</p>
     <input contenteditable="false" id="currObjectName">
     <label for="currObjectX">X:</label>
-    <input id="currObjectX" min="0" onchange="ChangeX(value)" type="number">
+    <input id="currObjectX" onchange="ChangeX(value)" type="number">
     <label for="currObjectY">Y:</label>
-    <input id="currObjectY" min="0" onchange="ChangeY(value)" type="number">
+    <input id="currObjectY" onchange="ChangeY(value)" type="number">
     <label for="currObjectZ">Z:</label>
-    <input id="currObjectZ" min="0" onchange="ChangeZ(value)" type="number">
+    <input id="currObjectZ" onchange="ChangeZ(value)" type="number">
 </div>
 <!--    <div class="time_line_box">-->
 <!--    <div class="time_line" style="width:100%;">-->
@@ -483,7 +483,7 @@
     <input max="25" min="1" onchange="showValue(this.value)" step="1" type="range" value="1"/>
     <view>
         <label>当前帧：</label><input id="curr_key" type="text" value="1">
-        <button>插入关键帧</button>
+        <button onclick="setKey()">插入关键帧</button>
     </view>
 </div>
 
@@ -495,6 +495,7 @@
 
 <script src="geometryElements.js"></script>
 <script src="tagMaker.js"></script>
+<script src="keyFrameFunctions.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
