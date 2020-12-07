@@ -1,4 +1,5 @@
-let loader = new THREE.TextureLoader();
+// let loader = new THREE.TextureLoader();
+let curr_texture = "https://mmbiz.qlogo.cn/mmbiz_jpg/lBSHibv6GicCZ6Qy6pPpoJOoVbzP7o4uUpwnO62dic1C9Iz5du3jhxGNPaY5SVxm93eP46d2uUCnTvFmhTibHrDzpg/0?wx_fmt=jpeg";
 
 function MyMesh(geometry, material) {
     THREE.Mesh.call(this, a = geometry, b = material);

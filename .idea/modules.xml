@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://F:/nginx-1.18.0/conf/.idea/conf.iml" filepath="F:/nginx-1.18.0/conf/.idea/conf.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/web3Da.iml" filepath="$PROJECT_DIR$/.idea/web3Da.iml" />
     </modules>
   </component>

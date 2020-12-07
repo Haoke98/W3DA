@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <meta content="never" name="referrer">
+    <meta content="no-cache, no-store, must-revalidate" http-equiv="Cache-Control"/>
     <link href="./img/W3DAlogo.png" rel="icon">
     <title>W3DA's Main Page</title>
     <style>
@@ -37,7 +39,6 @@
             height: 30%;
             display: flex;
             font-size: 0.5%;
-            overflow: hidden;
             border-radius: 5px;
             color: #eeeeee;
             opacity: 0.8;
@@ -46,19 +47,50 @@
         #tool_bar {
             position: absolute;
             background-color: rgba(55, 55, 55, 1);
-            width: 99%;
+            width: 60%;
             height: 5%;
-            overflow: hidden;
-            border-radius: 5px;
             top: 1%;
+            justify-content: space-around;
         }
 
+        #user-share-play-panel {
+            position: absolute;
+            width: 30%;
+            height: 5%;
+            top: 1%;
+            right: 0.5%;
+            display: flex;
+            flex-direction: row-reverse;
+            /*background-color: ;*/
+            justify-content: space-around;
+        }
+
+        /*#user-share-play-panel:nth-child(odd){*/
+        /*    background-color: #151BFD;*/
+        /*}*/
+        /*#user-share-play-panel:nth-child(even){*/
+        /*    background-color: white;*/
+        /*}*/
+
         #tool_bar img {
-            height: 90%;
-            width: 2.90%;
-            margin-top: 0.1%;
+            height: 36px;
+            width: 36px;
+            /*margin-top: 0.1%;*/
             margin-bottom: 0.1%;
             margin-left: 1%;
+        }
+
+        #tool_bar img:hover {
+            height: 100px;
+            width: 100px;
+        }
+
+        #tool_bar img:active {
+            /*background-color: white;*/
+            /*height: 100%;*/
+            /*width: 100%;*/
+            /*backdrop-filter: blur(10px);*/
+            transform: translateY(4px);
         }
 
         #cube {
@@ -151,6 +183,18 @@
             flex-direction: column;
         }
 
+        #objectPanel:hover, #currObjectPanel:hover {
+            width: 12%;
+        }
+
+        #geometryPanel:hover {
+            width: 12%;
+        }
+
+        #mapPanel:hover {
+            width: 12%;
+        }
+
         canvas {
             position: absolute;
             z-index: 0;
@@ -177,18 +221,34 @@
             border: solid 1px;
         }
 
+        .unActiveObject:hover {
+            background-color: rgba(0, 150, 255, 0.5);
+            height: 20%;
+            transition: background-color .3s;
+        }
+
+        .unActiveObject:active {
+            background-color: red;
+        }
+
         #btnPlay {
             /*width: 50%;*/
-            position: absolute;
-            z-index: 1;
-            width: 3%;
-            height: 5%;
-            top: 1%;
-            left: 50%;
+            /*position: absolute;*/
+            /*z-index: 1;*/
+            /*top: 1%;*/
+            /*left: 47%;*/
+
+            width: 36px;
+            height: 36px;
             /*background-image: url(img/stop.png);*/
             background-position: center;
             background-repeat: no-repeat;
             background-size: 100%;
+        }
+
+        #btnPlay:hover {
+            width: 100px;
+            height: 100px;
         }
 
 
@@ -212,7 +272,17 @@
             margin-left: 4px;
         }
 
-        #objectContainerView, #mapsContainerView, #geometryContainerView {
+        #btnRemove:hover {
+            width: 50px;
+            height: 50px;
+
+        }
+
+        #btnRemove:active {
+            background-color: white;
+        }
+
+        #objectContainerView, #mapsContainerView, #geometryContainerView2 {
             right: 0;
             width: 100%;
             height: 100%;
@@ -246,22 +316,33 @@
         }
 
         #mask img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
+            /*position: absolute;*/
+            /*z-index: 3;*/
+            /*top: 50%;*/
+            /*left: 50%;*/
+            margin: auto;
+            background-image: url("https://x.izbasarweb.xyz/static/admin/img/inline-delete.svg");
         }
 
         #btnExport {
-            position: absolute;
-            z-index: 1;
-            width: 25px;
-            height: auto;
+            /*position: absolute;*/
+            /*z-index: 1;*/
+            width: 36px;
+            height: 36px;
             top: 12px;
             right: 60px;
         }
 
+        #btnExport:hover {
+            width: 100px;
+            height: 100px;
+        }
+
+        #btnExport:active {
+            transform: translateY(4px);
+        }
+
         #userPage {
-            position: absolute;
             z-index: 1;
             width: 30px;
             height: auto;
@@ -269,6 +350,15 @@
             right: 12px;
             border: orange solid 2px;
             border-radius: 10px;
+        }
+
+        #userPage:hover {
+            width: 100px;
+            height: 100px;
+        }
+
+        #userPage:active {
+            transform: translateY(4px);
         }
 
 
@@ -387,6 +477,12 @@
             width: 90%;
         }
 
+        #codeExporter {
+            margin: auto;
+            height: 60%;
+            width: 80%;
+        }
+
     </style>
     <!--    <link href="css/main.css" rel="stylesheet" type="text/css" />-->
     <!--    <link rel="stylesheet" type="text/css" href="main.css"/>-->
@@ -395,32 +491,40 @@
     <script src="./libs/stats.min.js"></script>
     <script src="./libs/jquery-3.5.1.min.js"></script>
 </head>
+
 <body>
+
 <!--<view id="controlFloor">-->
 <!--      <div id="stats-output"></div>-->
 <!--  <input type="range" min="10" max="300" value="100" step="10" οnchange="showValue(this.value)" style="">-->
 <div id="tool_bar">
-    <img id="cube" src="img/cube.png">
-    <img id="ball" src="img/ball.png">
-    <img id="cylinder" src="img/cylinder.png">
-    <img id="yuanzhui" src="img/yuanzhui.png">
-    <img id="yuanbing" src="img/yuanbing.png">
-    <img id="quxian" src="img/quxian.png">
-    <img id="zhixian" src="img/zhixian.png">
-    <img id="square" src="img/square.png">
-    <img id="circle" src="img/circle.png">
+    <!--    <img id="cube" src="img/cube.png">-->
+    <!--    <img id="ball" src="img/ball.png">-->
+    <!--    <img id="cylinder" src="img/cylinder.png">-->
+    <!--    <img id="yuanzhui" src="img/yuanzhui.png">-->
+    <!--    <img id="yuanbing" src="img/yuanbing.png">-->
+    <!--    <img id="quxian" src="img/quxian.png">-->
+    <!--    <img id="zhixian" src="img/zhixian.png">-->
+    <!--    <img id="square" src="img/square.png">-->
+    <!--    <img id="circle" src="img/circle.png">-->
 </div>
+<div id="user-share-play-panel">
+    <a href="W3DA_Page_3.html"><img id="userPage" src="img/me.png"></a>
+    <img id="btnExport" onclick="Export()" src="img/export.png">
+    <view class="stop" id="btnPlay" onclick="playOrStop()"></view>
+</div>
+
 <div id="geometryPanel">
     <p>形状面板</p>
-    <view id="geometryContainerView"></view>
+    <view id="geometryContainerView2"></view>
 </div>
+
+
 <div id="mapPanel">
     <p>贴图面板</p>
     <view id="mapsContainerView"></view>
 </div>
 <!--    <view class="leftArea">-->
-<view class="stop" id="btnPlay" onclick="playOrStop()"></view>
-<img id="btnExport" onclick="Export()" src="img/export.png">
 
 
 <div id="objectPanel">
@@ -435,24 +539,15 @@
     <!--        }-->
     <!--    </style>-->
     <view id="objectContainerView">
-        <!--        <template v-for="item in objects">-->
-        <!--            <li :name="item.name"  v-bind:class="{'activeObject':item.isActive,'unActiveObject':!item.isActive}"  onclick="activateTargetMesh1(name)">{{item.name}}</li>-->
-        <!--        </template>-->
     </view>
     <img id="btnRemove" onclick="removeObject()" src="img/del.png">
 </div>
 
 
 <div id="currObjectPanel">
-    <p>当前对象</p>
-    <input contenteditable="false" id="currObjectName">
-    <label for="currObjectX">X:</label>
-    <input id="currObjectX" onchange="ChangeX(value)" type="number">
-    <label for="currObjectY">Y:</label>
-    <input id="currObjectY" onchange="ChangeY(value)" type="number">
-    <label for="currObjectZ">Z:</label>
-    <input id="currObjectZ" onchange="ChangeZ(value)" type="number">
+    <curr-object-panel id="curr_object_panel" style="width:100%;height:100%;"></curr-object-panel>
 </div>
+
 <!--    <div class="time_line_box">-->
 <!--    <div class="time_line" style="width:100%;">-->
 <!--        <ol>-->
@@ -487,15 +582,132 @@
     </view>
 </div>
 
+<div hidden="hidden" id="mask">
+    <img onclick="removeMask()">
+    <textarea id="codeExporter">
+        1 #this is the code the given to you.\n
+        2 #may be its sure.
+
+    </textarea>
+</div>
+
+
 <!--<view id="cameraInfoPanel">this is camera info</view>-->
-<a href="W3DA_Page_3.html"><img id="userPage" src="img/me.png"></a>
 <!--    </view>-->
 <!--</view>-->
 <canvas id="webglcanvas"></canvas>
 
 <script src="geometryElements.js"></script>
 <script src="tagMaker.js"></script>
-<script src="keyFrameFunctions.js"></script>
+<script src="mapPanel.js"></script>
+<script src="keyFramePanel.js"></script>
+<script src="GUI.js"></script>
+<script src="camera.js"></script>
+<script src="objectPanel.js"></script>
+<script src="controls.js"></script>
 <script src="main.js"></script>
+
+
+<template id="template_currObjectPanel">
+    <style>
+        :host {
+            /*background-color: red;*/
+            overflow: hidden;
+        }
+
+        :host:hover {
+            width: max-content;
+            height: max-content;
+        }
+
+        .x {
+            background-color: rgba(255, 0, 0, 0.5);
+        }
+
+        .y {
+            background-color: rgba(0, 255, 0, 0.5);
+        }
+
+        .z {
+            background-color: rgba(0, 0, 255, 0.5);
+        }
+
+        p {
+            color: orange;
+        }
+
+        .objectName {
+            background-color: orange;
+        }
+
+        input {
+            width: 100%;
+        }
+    </style>
+    <p>当前对象</p>
+    <input class="objectName" contenteditable="false" id="currObjectName1">
+    <label>X:</label>
+    <input class="x" id="currObjectX" type="number">
+    <label>Y:</label>
+    <input class="y" id="currObjectY" type="number">
+    <label>Z:</label>
+    <input class="z" id="currObjectZ" type="number">
+</template>
+<script>
+    const shadowRoots = new WeakMap();
+
+    class CurrObjectPanel extends HTMLElement {
+        constructor() {
+            super();
+            const shadow = this.attachShadow({mode: 'closed'});
+            shadowRoots.set(this, shadow);
+        }
+
+        connectedCallBack() {
+            const shadow = shadowRoots.get(this);
+            var templateElem = document.getElementById('template_currObjectPanel');
+            var content = document.importNode(templateElem.content, true);
+            content.querySelector('.objectName').setAttribute('value', SELECTED.name);
+            var elementX = content.querySelector('.x');
+            elementX.setAttribute('value', SELECTED.position.x);
+            elementX.addEventListener('change', function (e) {
+                SELECTED.position.x = e.target.value;
+                activeRenderer();
+            });
+            var elementY = content.querySelector('.y');
+            elementY.setAttribute('value', SELECTED.position.y);
+            elementY.addEventListener('change', function (e) {
+                SELECTED.position.y = e.target.value;
+                activeRenderer();
+            });
+            var elementZ = content.querySelector('.z');
+            elementZ.setAttribute('value', SELECTED.position.z);
+            elementZ.addEventListener('change', function (e) {
+                SELECTED.position.z = e.target.value;
+                activeRenderer();
+            });
+            shadow.innerHTML = "";
+            shadow.appendChild(content);
+
+        }
+
+        setAttribute(qualifiedName, value) {
+            // console.log("the attribute has been changed：", qualifiedName, value);
+            // this.connectedCallBack();
+        }
+
+        click() {
+            this.connectedCallBack();
+        }
+
+
+        ChangeZ(z) {
+
+        }
+
+    }
+
+    window.customElements.define("curr-object-panel", CurrObjectPanel);
+</script>
 </body>
 </html>

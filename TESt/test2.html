@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <title></title>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /*使页面无法被选中*/
+
+        .menue-list {
+            width: 260px;
+            margin-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            background-color: #737373;
+        }
+
+        .menue-title-small-text-div {
+            display: inline-block;
+            width: 50px;
+            height: 20px;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .menue-text {
+            font-family: Microsoft YaHei;
+            font-size: 12px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 20px;
+            letter-spacing: 0.4px;
+            color: #fbfbfb;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        #menue-slide-1, #menue-slide-2, #menue-slide-3, #menue-slide-4, #menue-slide-5 {
+            position: relative;
+            float: left;
+            margin-top: 5px;
+        }
+
+        .ss-slider {
+            position: absolute;
+            bottom: -4px;
+            color: white;
+            font-size: smaller;
+            text-align: center;
+            cursor: pointer;
+            background-image: url("https://x.izbasarweb.xyz/static/admin/img/inline-delete.svg");
+            background-repeat: no-repeat;
+        }
+
+        .ss-wattle {
+            background-color: rgba(205, 205, 205, 1);
+            border-radius: 4px 4px 4px 4px;
+        }
+
+        @media (min-width: 1440px) and (max-width: 1599px) {
+            #query-menue-div {
+                padding: 20px;
+            }
+
+            .menue-title {
+                margin: 20px 0px;
+                margin-left: 40px;
+            }
+
+            .menue-title-small-text-div {
+                margin-bottom: 10px;
+            }
+
+            .menue-string {
+                margin-bottom: 20px;
+            }
+
+            #ship-img-div {
+                margin-bottom: 20px;
+            }
+
+            .menue-list {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            #query-menue-div {
+                padding: 30px 20px;
+            }
+
+            .menue-title {
+                margin: 25px 0px;
+                margin-left: 40px;
+            }
+
+            .menue-title-small-text-div {
+                margin-bottom: 10px;
+            }
+
+            .menue-string {
+                margin-bottom: 30px;
+            }
+
+            #ship-img-div {
+                margin-bottom: 30px;
+            }
+
+            .menue-list {
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="menue-list">
+    <div class="menue-title-small-text-div menue-text fl" id="menue-title-small-text-div-11">温度</div>
+    <div id="menue-slide-1" ondragstart="return false">
+        <div class="ss-wattle" id="w-1" ondragstart="return false"></div>
+        <div class="ss-slider" id="s-1" ondragstart="return false"></div>
+    </div>
+    <div class="menue-title-small-text-div menue-text fr" id="menue-title-small-text-div-16"></div>
+    <div class="clear"></div>
+
+    <div class="menue-title-small-text-div menue-text fl" id="menue-title-small-text-div-12">风速</div>
+    <div id="menue-slide-2" ondragstart="return false">
+        <div class="ss-wattle" id="w-2" ondragstart="return false"></div>
+        <div class="ss-slider" id="s-2" ondragstart="return false"></div>
+    </div>
+    <div class="menue-title-small-text-div menue-text fr" id="menue-title-small-text-div-17"></div>
+    <div class="clear"></div>
+
+    <div class="menue-title-small-text-div menue-text fl" id="menue-title-small-text-div-13">能见度</div>
+    <div id="menue-slide-3" ondragstart="return false">
+        <div class="ss-wattle" id="w-3" ondragstart="return false"></div>
+        <div class="ss-slider" id="s-3" ondragstart="return false"></div>
+    </div>
+    <div class="menue-title-small-text-div menue-text fr" id="menue-title-small-text-div-18"></div>
+    <div class="clear"></div>
+
+    <div class="menue-title-small-text-div menue-text fl" id="menue-title-small-text-div-14">3H降水</div>
+    <div id="menue-slide-4" ondragstart="return false">
+        <div class="ss-wattle" id="w-4" ondragstart="return false"></div>
+        <div class="ss-slider" id="s-4" ondragstart="return false"></div>
+    </div>
+    <div class="menue-title-small-text-div menue-text fr" id="menue-title-small-text-div-19"></div>
+    <div class="clear"></div>
+
+    <div class="menue-title-small-text-div menue-text fl" id="menue-title-small-text-div-15">6H降水</div>
+    <div id="menue-slide-5" ondragstart="return false">
+        <div class="ss-wattle" id="w-5" ondragstart="return false"></div>
+        <div class="ss-slider" id="s-5" ondragstart="return false"></div>
+    </div>
+    <div class="menue-title-small-text-div menue-text fr" id="menue-title-small-text-div-20">22</div>
+    <div class="clear"></div>
+</div>
+
+<script type="text/javascript">
+    (function (document) {
+
+        /**
+         *
+         * ss   游标
+         * sw   滑轴
+         *
+         * @param {Object} sw_length            轴长
+         * @param {Object} sw_thickness         轴宽
+         * @param {Object} sw_min               最大刻度
+         * @param {Object} sw_max               最小刻度
+         * @param {Object} ss_init              初始值
+         * @param {ID} Wattle_ID                滑轴id
+         * @param {ID} Slider_ID                游标id
+         */
+        $.fn.SS = function (sw_length, sw_thickness, sw_min, sw_max, ss_init, Wattle_ID, Slider_ID) {
+            //            var ss_thickness = ss_thickness * (4 / 3);
+            var ss_thickness = 19;
+            var ss_length = 19;
+            var sw_margin = 0;
+            var ss_position = Math.round((ss_init / (sw_max - sw_min)) * (sw_length - ss_length));
+            var ss_value = Math.round((ss_position - sw_margin) / (sw_length - ss_length) * (sw_max - sw_min) + sw_min);
+            var sv_id = Slider_ID + '-sv';
+
+            $(Wattle_ID).width(sw_length);
+            $(Wattle_ID).height(sw_thickness);
+            $(Slider_ID).width(ss_length);
+            $(Slider_ID).height(ss_thickness);
+            $(Wattle_ID).css("margin", sw_margin);
+            $(Slider_ID).css("left", ss_position);
+            $(Slider_ID).append(' ');
+            $(Slider_ID).parent().next().text(ss_value);
+
+            $(Wattle_ID).append("<div id='" + sv_id.replace('#', '') + "' style='height: 100%; width: " + (ss_position + 2) + "px; background-color: #6cb8ed; border-radius: inherit;'></div>");
+
+            var M = false; //鼠标状态
+            var Rx; // 触发对象
+            var t = $(this);
+
+            t.mousedown(function (event) {
+                Rx = event.pageX - (parseInt(t.css("left")) || 0);
+                t.css("position", "absolute").fadeTo(20, 0.5); //点击改变鼠标状态，并且将div设置透明
+                M = true; // 鼠标处于激活状态
+            });
+
+            $(document).mouseup(function (event) { // 鼠标松开，
+                M = false; //  鼠标处于释放状态
+                t.fadeTo(20, 1); // 鼠标释放，将div透明度还原
+            });
+
+            $(document).mousemove(function (event) {
+                if (M) {
+                    ss_position = (event.pageX - Rx) >= sw_margin ? ((event.pageX - Rx) <= sw_length + sw_margin - ss_length ? (event.pageX - Rx) : (sw_length + sw_margin - ss_length)) : sw_margin;
+                    ss_value = Math.round((ss_position - sw_margin) / (sw_length - ss_length) * (sw_max - sw_min) + sw_min);
+                    t.css({
+                        left: ss_position
+                    });
+                    $(sv_id).css('width', (ss_position + 2));
+                    t.append(' ');
+                    t.parent().next().text(ss_value);
+                }
+            });
+        }
+    })(document);
+
+    $(function () {
+        $('#s-1').SS(150, 10, 0, 45, 35, '#w-1', '#s-1'); /*温度*/
+        $('#s-2').SS(150, 10, 0, 60, 10.7, '#w-2', '#s-2'); /*风速*/
+        $('#s-3').SS(150, 10, 1000, 4000, 2000, '#w-3', '#s-3'); /*能见度*/
+        $('#s-4').SS(150, 10, 0, 200, 50, '#w-4', '#s-4'); /*3h降水*/
+        $('#s-5').SS(150, 10, 0, 200, 50, '#w-5', '#s-5'); /*6h降水*/
+    })
+</script>
+
+</body>
+
+</html>
