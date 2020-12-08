@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b7889159-e17d-4ad8-80c4-54c562965c4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/GUI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TESt/bootstrap_test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TESt/test2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/camera.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controls.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mapPanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/objectPanel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/useless.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/web3Da.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/web3Da.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESt/test3.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyTHREE.js" beforeDir="false" afterPath="$PROJECT_DIR$/MyTHREE.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/W3DA_Page_1(WEB应用入口).html" beforeDir="false" afterPath="$PROJECT_DIR$/W3DA_Page_1(APP_Entrance).html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geometryElements.js" beforeDir="false" afterPath="$PROJECT_DIR$/geometryElements.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyFrameFunctions.js" beforeDir="false" afterPath="$PROJECT_DIR$/keyFramePanel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/three.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/libs/three.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/try.html" beforeDir="false" afterPath="$PROJECT_DIR$/try.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/useless.js" beforeDir="false" afterPath="$PROJECT_DIR$/useless.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="web3Da" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -51,33 +52,25 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="F:/website/djangoWebProjects/izBasar" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -100,7 +93,10 @@
       <workItem from="1606112824567" duration="2624000" />
       <workItem from="1606741535165" duration="3081000" />
       <workItem from="1606845715834" duration="81000" />
-      <workItem from="1607241479588" duration="44375000" />
+      <workItem from="1607241479588" duration="45713000" />
+      <workItem from="1607371228069" duration="27564000" />
+      <workItem from="1607425761569" duration="14000" />
+      <workItem from="1607451455139" duration="1322000" />
     </task>
     <task id="LOCAL-00001" summary="1.the tag has been made.&#10;2.the renderer has been controlled in unused time.&#10;3.the key track UI has been made.&#10;4.the object control panel has been made and control its position until now.&#10;5.the UI has been optimized for all devices just according to percentages.&#10;6.the Vue has been removed from all the Project. it is very less useful product for us.&#10;7.the initial position of the camera has been optimized.&#10;8.an event listener has been added to listen any action of the orbitControls.&#10;9.the geometryElements.js has been optimized.&#10;10.make it possible to add the X,Y,Z label on the Axis by using the Sprite.&#10;11.optimized the CreateGeometry function ,removeObject function and activateTargetMesh function .&#10;12.new add the setCurrObject function in order to show the some information of the current active mesh object on the UI .">
       <created>1604425325801</created>
@@ -116,43 +112,66 @@
       <option name="project" value="LOCAL" />
       <updated>1604895833409</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="1. make an HTML component use web component API .">
+      <created>1607337919568</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607337919569</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="1.the tag has been made.&#10;2.the renderer has been controlled in unused time.&#10;3.the key track UI has been made.&#10;4.the object control panel has been made and control its position until now.&#10;5.the UI has been optimized for all devices just according to percentages.&#10;6.the Vue has been removed from all the Project. it is very less useful product for us.&#10;7.the initial position of the camera has been optimized.&#10;8.an event listener has been added to listen any action of the orbitControls.&#10;9.the geometryElements.js has been optimized.&#10;10.make it possible to add the X,Y,Z label on the Axis by using the Sprite.&#10;11.optimized the CreateGeometry function ,removeObject function and activateTargetMesh function .&#10;12.new add the setCurrObject function in order to show the some information of the current active mesh object on the UI ." />
     <MESSAGE value="1.make it possible to choose geometry object in the 3D space on the canvas by using the raycaster." />
-    <option name="LAST_COMMIT_MESSAGE" value="1.make it possible to choose geometry object in the 3D space on the canvas by using the raycaster." />
+    <MESSAGE value="1. make an HTML component use web component API ." />
+    <option name="LAST_COMMIT_MESSAGE" value="1. make an HTML component use web component API ." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="190" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1607324969476">
+    <state x="190" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1607449519608">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="190" y="136" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1607324969476" />
-    <state x="263" y="0" key="CommitChangelistDialog2" timestamp="1604895831157">
+    <state x="190" y="136" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1607449519608" />
+    <state x="499" y="163" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607424810360">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="263" y="0" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1604895831157" />
-    <state x="46" y="164" width="1350" height="648" key="DiffContextDialog" timestamp="1604423240162">
+    <state x="499" y="163" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1607424810360" />
+    <state x="263" y="0" key="CommitChangelistDialog2" timestamp="1607337917500">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="46" y="164" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1604423240162" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1604895839201">
+    <state x="263" y="0" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1607337917500" />
+    <state x="46" y="164" width="1350" height="648" key="DiffContextDialog" timestamp="1607449542591">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1604895839201" />
-    <state x="449" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1606845737132">
+    <state x="46" y="164" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1607449542591" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1607337921129">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="449" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1606845737132" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1607337921129" />
+    <state x="449" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1607425761956">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="449" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1607425761956" />
     <state x="430" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1607322839948">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

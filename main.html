@@ -655,7 +655,6 @@
 </template>
 <script>
     const shadowRoots = new WeakMap();
-
     class CurrObjectPanel extends HTMLElement {
         constructor() {
             super();
@@ -691,19 +690,16 @@
 
         }
 
-        setAttribute(qualifiedName, value) {
-            // console.log("the attribute has been changed：", qualifiedName, value);
-            // this.connectedCallBack();
-        }
-
         click() {
             this.connectedCallBack();
         }
 
-
-        ChangeZ(z) {
-
+        normalize() {
         }
+
+        blur() {
+        }
+
 
     }
 

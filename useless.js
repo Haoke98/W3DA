@@ -22,3 +22,12 @@ function cameraZoomIn(delta) {
 function getCurrentElement() {
     return document.getElementById(event.currentTarget.getAttribute('id'));
 }
+
+
+//第一种，使用while循环
+function sleep(delay) {
+    var start = (new Date()).getTime();
+    while ((new Date()).getTime() - start < delay) {
+
+    }
+}
