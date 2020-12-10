@@ -39,9 +39,11 @@
 
 <body>
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-<track-controller-panel class="trackPanel"></track-controller-panel>
+<track-controller-panel class="trackPanel" id="this"></track-controller-panel>
 
-<div class="trackPale">333333333333333333333333333333333333</div>
+<div class="trackPanel">333333333333333333333333333333333333</div>
+
+
 <template id="template_key">
     <div class="timli">
         <div class="track" id="#"></div>
@@ -225,12 +227,12 @@
     </style>
     <div class="trackPale">
         <div class="control">
-            <img src="../img/fast_backward.svg" title="从当前贞开始逆序播放">
-            <img src="../img/prev_key.svg" title="移动上一帧">
+            <img id="fastBackward" src="../img/fast_backward.svg" title="从当前贞开始逆序播放">
+            <img id="prev_key" src="../img/prev_key.svg" title="移动上一帧">
             <img id="track_play" src="../img/play.svg" title="从头开始播放一次">
-            <img src="../img/loop.svg" title="从头开始循环播放">
-            <img src="../img/next_key.svg" title="移动到下一帧">
-            <img src="../img/fast_forward.svg" title="从当前贞开始正序播放">
+            <img id="loop" src="../img/loop.svg" title="从头开始循环播放">
+            <img id="next_key" src="../img/next_key.svg" title="移动到下一帧">
+            <img id="fastForward" src="../img/fast_forward.svg" title="从当前贞开始正序播放">
         </div>
         <div class="trackPale1">
             <div class="track1" id="track_slider_container">
@@ -248,12 +250,11 @@
     var shadowRoots = new WeakMap();
 
     class TrackController extends HTMLElement {
-        // KEY_COUNT=10;
-        // KEY_START=1;
-        // KEY_END =10;
-        // WIDTH_PER_KEY_BY_PERCENT = 10;
-
-        // CURR = 3;
+        // readonly HEAD_KEY_ID:"KEY";
+        // update():void;
+        // attr:string;
+        // disabled:boolean;
+        // disabled: boolean;
 
         constructor() {
             super();
@@ -277,11 +278,62 @@
             var shadow = shadowRoots.get(this);
             var containerElm = shadow.querySelector('.timdiv')
             this.inflate_all_key(start, end, containerElm);
+            this.setCurrKey(this.KEY_START + 3);
+            this.setCurrKey(this.KEY_START + 2);
+            this.setCurrKey(this.KEY_START + 1);
             this.setCurrKey(this.KEY_START);
+            this.bindAllEvent();
         }
 
-        bindEvent() {
+        bindAllEvent() {
+            var _this = this;
+            this.bindEvent(".timli", "click", function () {
+                var timli = $(this)
+                var firstChild = timli.children().get(0);
+                var elm_id = $(firstChild).attr('id');
+                console.log("this is timli click.", timli, firstChild, elm_id);
+                var key = _this.getKeyById(elm_id);
+                _this.setCurrKey(key);
+            })
+            this.bindEvent("#loop", "click", function () {
+                for (var ii = 0; ii <= 4; ii++) {
+                    for (var i = _this.CURR; i <= _this.KEY_END; i++) {
+                        _this.setCurrKey(i);
+                    }
+                    _this.setCurrKey(_this.KEY_START);
+                }
+                $(this).click();
+            })
+            this.bindEvent("#prev_key", "click", function () {
+                _this.setCurrKey(_this.CURR - 1);
+            })
+            this.bindEvent("#next_key", "click", function () {
+                _this.setCurrKey(_this.CURR + 1);
+            })
+            this.bindEvent("#track_play", "click", function () {
+                for (var i = _this.KEY_START; i <= _this.KEY_END; i++) {
+                    _this.setCurrKey(i);
+                }
+            })
+            this.bindEvent("#fastForward", "click", function () {
+                for (var i = _this.CURR; i <= _this.KEY_END; i++) {
+                    _this.setCurrKey(i);
+                }
+            })
+            this.bindEvent("#fastBackward", "click", function () {
+                for (var i = _this.CURR; i >= _this.KEY_START; i--) {
+                    _this.setCurrKey(i);
+                }
+            })
+        }
+
+        bindEvent(selector, event_name, callback) {
             var shadow = shadowRoots.get(this);
+            var elems = shadow.querySelectorAll(selector);
+            console.log("this is elements selected:", elems)
+            for (var i = 0; i < elems.length; i++) {
+                elems[i].addEventListener(event_name, callback);
+            }
 
         }
 
@@ -302,8 +354,8 @@
             var huadiv = shadow.querySelector(".huadiv");
             var slider_attrs = this.getSliderAttr(key);
             console.log("this is slider's attrs:", slider_attrs);
-            var to_id = this.getKeyId(key);
-            $(huadiv).animate(slider_attrs, 500, function () {
+            var to_id = this.getIdByKey(key);
+            $(huadiv).animate(slider_attrs, 50, function () {
                 $(shadow.querySelector(".track-curr-key")).removeClass("track-curr-key");
                 $(shadow.querySelector("#" + to_id)).addClass("track-curr-key");
             });
@@ -325,13 +377,19 @@
             var templateElm = document.getElementById("template_key");
             var content = document.importNode(templateElm.content, true);
             content.querySelector('.timli').style.width = width_per_key_by_percent;
-            content.querySelector('.track').setAttribute('id', this.getKeyId(key_index))
+            console.log(this.getIdByKey(key_index));
+            content.querySelector('.track').setAttribute('id', this.getIdByKey(key_index))
             content.querySelector('.key_num_show').innerHTML = key_index
+            console.log(key_index, ":", content)
             return content
         }
 
-        getKeyId(key_index) {
-            return this.HEAD_KEY_ID + key_index;
+        getIdByKey(key_index) {
+            return "KEY" + key_index;
+        }
+
+        getKeyById(elmid) {
+            return parseInt(elmid.split("KEY")[1]);
         }
 
         activateCurrKey(from, to) {
@@ -348,40 +406,8 @@
         }
 
 
-        //     $(
-        //
-        //     ".timpagedw"
-        // ).
-        //
-        //     click(
-        //
-        //     function() {
-        //         if ($(".timliclick").next().length > 0) {
-        //             $(".timliclick").next().click();
-        //         }
-        //     }
-        //
-        // )
-        //     ;
-        //
-        //     $(
-        //
-        //     ".timpageup"
-        // ).
-        //
-        //     click(
-        //
-        //     function() {
-        //         if ($(".timliclick").prev().length > 0) {
-        //             $(".timliclick").prev().click();
-        //         }
-        //     }
-        //
-        // )
-        //     ;
-
         change(i, ii) {
-            var nextCurr_id = this.getKeyId(ii);
+            var nextCurr_id = this.getIdByKey(ii);
             setTimeout(function () {
                 $("#" + nextCurr_id).addClass("track-curr-key");
             }, 400 * i)
@@ -389,6 +415,8 @@
         }
 
         setCurrKey(key) {
+            key = Math.max(key, this.KEY_START);
+            key = Math.min(key, this.KEY_END);
             this.inflate_curr_key_slider(key);
             this.CURR = key;
         }

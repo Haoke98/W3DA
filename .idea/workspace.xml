@@ -19,12 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b7889159-e17d-4ad8-80c4-54c562965c4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TESt/test3.html" afterDir="false" />
+    <list default="true" id="b7889159-e17d-4ad8-80c4-54c562965c4f" name="Default Changelist" comment="1.make the track-controller become a component.">
+      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/useless.js" beforeDir="false" afterPath="$PROJECT_DIR$/useless.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TESt/test3.html" beforeDir="false" afterPath="$PROJECT_DIR$/TESt/test3.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +95,9 @@
       <workItem from="1607241479588" duration="45713000" />
       <workItem from="1607371228069" duration="27564000" />
       <workItem from="1607425761569" duration="14000" />
-      <workItem from="1607451455139" duration="1322000" />
+      <workItem from="1607451455139" duration="3546000" />
+      <workItem from="1607609250237" duration="79000" />
+      <workItem from="1607609698140" duration="11481000" />
     </task>
     <task id="LOCAL-00001" summary="1.the tag has been made.&#10;2.the renderer has been controlled in unused time.&#10;3.the key track UI has been made.&#10;4.the object control panel has been made and control its position until now.&#10;5.the UI has been optimized for all devices just according to percentages.&#10;6.the Vue has been removed from all the Project. it is very less useful product for us.&#10;7.the initial position of the camera has been optimized.&#10;8.an event listener has been added to listen any action of the orbitControls.&#10;9.the geometryElements.js has been optimized.&#10;10.make it possible to add the X,Y,Z label on the Axis by using the Sprite.&#10;11.optimized the CreateGeometry function ,removeObject function and activateTargetMesh function .&#10;12.new add the setCurrObject function in order to show the some information of the current active mesh object on the UI .">
       <created>1604425325801</created>
@@ -119,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607337919569</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1.make the track-controller become a component.">
+      <created>1607453073836</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607453073836</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,16 +150,21 @@
     <MESSAGE value="1.the tag has been made.&#10;2.the renderer has been controlled in unused time.&#10;3.the key track UI has been made.&#10;4.the object control panel has been made and control its position until now.&#10;5.the UI has been optimized for all devices just according to percentages.&#10;6.the Vue has been removed from all the Project. it is very less useful product for us.&#10;7.the initial position of the camera has been optimized.&#10;8.an event listener has been added to listen any action of the orbitControls.&#10;9.the geometryElements.js has been optimized.&#10;10.make it possible to add the X,Y,Z label on the Axis by using the Sprite.&#10;11.optimized the CreateGeometry function ,removeObject function and activateTargetMesh function .&#10;12.new add the setCurrObject function in order to show the some information of the current active mesh object on the UI ." />
     <MESSAGE value="1.make it possible to choose geometry object in the 3D space on the canvas by using the raycaster." />
     <MESSAGE value="1. make an HTML component use web component API ." />
-    <option name="LAST_COMMIT_MESSAGE" value="1. make an HTML component use web component API ." />
+    <MESSAGE value="1.make the track-controller become a component." />
+    <option name="LAST_COMMIT_MESSAGE" value="1.make the track-controller become a component." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="190" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1607449519608">
+    <state x="190" y="136" key="#com.intellij.ide.util.MemberChooser" timestamp="1607621936809">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="190" y="136" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1607449519608" />
+    <state x="190" y="136" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1607621936809" />
+    <state x="264" y="132" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1607609277556">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="264" y="132" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.834@0.0.1536.834" timestamp="1607609277556" />
     <state x="499" y="163" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607424810360">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -164,10 +177,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="46" y="164" width="1350" height="648" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1607449542591" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1607337921129">
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1607631805781">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1607337921129" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1607631805781" />
     <state x="449" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1607425761956">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
