@@ -1,23 +1,24 @@
 # WEB3DA
 
 #### 介绍
-”WEB 3D Animation “ web前端项目的代码
+”WEB 3D Animation “ 前后端分离项目，利用 three.js 的网页 WebGL 库在网页端实现了 桌面版 Maya 的所有功能。
+
 
 #### 软件架构
-软件架构说明
+前端：用的 原生态HTML组件 ，Vue，Jquery ， WebGL 的 three.js 第三方库 等技术
+后端：用的 python 的 Django 框架
 
 
 #### 安装教程
 
 1.  暂时还没有任何安装教程
-2.  xxxx
-3.  xxxx
+
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  先启动backend目录下的后端服务器程序
+2.  启动nginx负载均衡转发服务器
+3.  访问frontend目录下的main.html文件
 
 #### 参与贡献
 
