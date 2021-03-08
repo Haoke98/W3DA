@@ -82,15 +82,40 @@
 </style>
 <body background="img/bg1.jpg">
 <div class="signup-form">
-    <form action="index.html" method="post">
+    <form id="form" action="#" method="#">
         <img class="sign_up" src="img/sign_up.png">
         <h1>Sign Up</h1>
-        <input class="txtb" placeholder="邮箱/手机号" type="email"/>
-        <input class="txtb" placeholder="密码" type="password"/>
-        <a href="#">登录</a>
+        <input id="username" class="txtb" placeholder="邮箱/手机号" type="email"/>
+        <input id="password" class="txtb" placeholder="密码" type="password"/>
+        <a href="#" onclick="login()">登录</a>
         <a href="W3DA_Page_4.html">注册</a>
         <a href="main.html">新手试用</a>
     </form>
 </div>
+<script src="./libs/jquery-3.5.1.min.js"></script>
+<script>
+    function login() {
+        var _username = $("#username").val();
+        var _password = $("#password").val();
+        var xhr = new XMLHttpRequest();//第一步：建立所需的对象
+        var _form = document.createElement('form')
+        data = {
+            username: _username,
+            password: _password,
+        }
+        xhr.open('POST', '/W3DA/login', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+        xhr.send(JSON.stringify(data));//第三步：发送请求  将请求参数写在URL中
+        /**
+         * 获取数据后的处理程序
+         */
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var _json = JSON.parse(xhr.responseText);//获取到json字符串，还需解析
+                console.log(_json, _json.err_msg);
+                alert(_json.err_msg);
+            }
+        }
+    }
+</script>
 </body>
 </html>

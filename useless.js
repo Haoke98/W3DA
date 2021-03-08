@@ -31,3 +31,61 @@ function sleep(delay) {
 
     }
 }
+
+
+
+function initStats() {
+    stats = new Stats();
+    //设置统计模式
+    stats.setMode(0); // 0: fps, 1: ms
+    //统计信息显示在左上角
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '10px';
+    stats.domElement.style.top = '10px';
+    //将统计对象添加到对应的<div>元素中
+    // document.getElementById("stats-output").appendChild(stats.domElement);
+    return stats;
+}
+
+
+function onDocumentMouseMove(event) {
+
+    event.preventDefault();
+
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+}
+
+// // 监听鼠标移动方向， 从而确定地球南北半球
+// function onDocumentMouseMove(ev) {
+//     ev = ev || event;
+//     mouseX = ev.clientX - windowHalfX;
+//     mouseY = ev.clientY - windowHalfY
+// }
+
+// 监听窗口大小， 从而根据窗口大小改变地球大小， 类似响应式
+function onWindowResize() {
+    windowHalfX = window.innerWidth / 2;
+    windowHalfY = window.innerHeight / 2;
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight)
+}
+
+let cameraInfoPanelElement = document.getElementById('cameraInfoPanel');
+
+window.onresize = function () {
+    var canvas_rect = getElementRectById('webglcanvas');
+    renderer.setSize(canvas_rect.width, canvas_rect.height);
+    camera.aspect = canvas_rect.width / canvas_rect.height;
+    camera.updateProjectionMatrix();
+};
+
+
+
+function ImageMapTextureLoader(url, obj, loader) {
+    THREE.ImageUtils.crossOrigin = '';
+    var mapOverlay = THREE.ImageUtils.loadTexture(url);
+    obj.setMaterial(new THREE.MeshBasicMaterial({map: mapOverlay, needsUpdate: true}))
+}

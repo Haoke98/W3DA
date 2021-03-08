@@ -1,15 +1,11 @@
 let canvas,  //画布标签  绘图API
     stats;     //性能检测器
 
-let camera, //相机
-    CAMERA_NEAR = 20,
-    CAMERA_FAR = 10000,
-    CAMERA_FOV = 60,//人的眼睛大约能够看到180度的视场，视角大小设置要根据具体应用，一般游戏会设置60~90度
-    orbitControls;
+
 
 let scene,     //场景
     renderer,  //渲染器
-    group,     //物体组
+    groupGeometryObjects,     //物体组
     mouseX = 0,  //鼠标横向位置
     mouseY = 0,  //鼠标纵向位置
     windowHalfX = window.innerWidth / 2,  //视口大小的一般
@@ -17,14 +13,13 @@ let scene,     //场景
 
 let WIDTH_SEGMENTS = 30, HEIGHT_SEGMENTS = 30;
 // let SELECTED = new THREE.Mesh(new THREE.CubeGeometry(50, 100, 150));
-let SELECTED = null;
+let INTERSECTED = null;
 var objectCount = 0;
 let play = false;
 let clock = new THREE.Clock();
 let mixer;
 let AnimationAction;
-let curr_key = 1;
-let key_max = 25;
+
 let activeRender = false;
 
 
@@ -45,16 +40,18 @@ let activeRender = false;
 canvas = document.getElementById('webglcanvas');
 let canvas_rect = canvas.getBoundingClientRect();
 initRenderer(canvas_rect);
-initCamera(canvas_rect);
+// initCamera(canvas_rect);
+perspectiveView(30);
 scene = new THREE.Scene();
 // 创建一个组合
-group = new THREE.Group();
-scene.add(group);  //将组合添加进场景中渲染
+groupGeometryObjects = new THREE.Group();
+scene.add(groupGeometryObjects);  //将组合添加进场景中渲染
 initXYZ();
 mainPageReady();
 animate();  //渲染动画应该放在最后
 activeRenderer();
-canvas.addEventListener('mousedown', onDocumentMouseDown, false);
+// canvas.addEventListener('mousedown', onDocumentMouseDown, false);
+// canvas.addEventListener('mousemove', onDocumentMouseDown, false);
 
 
 
@@ -81,12 +78,12 @@ function initRenderer(canvas_rect) {
 
 function playOrStop() {
     let btnPlay = document.getElementById('btnPlay');
-    if (play) {
-        //正处于运动状态(stop.png)，需要变成不运动状态（play.png)
-        btnPlay.setAttribute('class', 'stop');
-    } else {
-        btnPlay.setAttribute('class', 'play');
-    }
+    // if (play) {
+    //     //正处于运动状态(stop.png)，需要变成不运动状态（play.png)
+    //     btnPlay.setAttribute('class', 'stop');
+    // } else {
+    //     btnPlay.setAttribute('class', 'play');
+    // }
     play = !play;
     KeyFrameTrack();
     // activeRenderer();
@@ -101,30 +98,16 @@ function mainPageReady() {
     // initPanel("geometryContainerView", geometryElements, function (panelElement) {
     //     return '<view onclick="CreateGeometry()" data-type="' + panelElement.data_type + '"><img src="' + panelElement.src + '">' + panelElement.name + '</view>';
     // });
-    initGeometryElements('geometryContainerView2', geometryElements);
+    // initGeometryElements('geometryContainerView2', geometryElements);
     initGeometryElements2('tool_bar', geometryElements);
     initMap();
     removeMask();
 }
 
 
-function initGeometryElements(container_id, elements_dic) {
-    let container = document.getElementById(container_id);
-    let innerHTMLContext = "";
-    for (key in elements_dic) {
-        innerHTMLContext += '<view class="geometry" onclick="CreateGeometry(dataset.key)" data-key="' + key + '"><img class="geometry" src="' + elements_dic[key].src + '">' + key + '</view>';
-    }
-    container.innerHTML = innerHTMLContext;
-}
 
-function initGeometryElements2(container_id, elements_dic) {
-    let container = document.getElementById(container_id);
-    let innerHTMLContext = "";
-    for (key in elements_dic) {
-        innerHTMLContext += '<img src="' + elements_dic[key].src + '" onclick="CreateGeometry(dataset.key)" data-key="' + key + '">';
-    }
-    container.innerHTML = innerHTMLContext;
-}
+
+
 
 function initPanel(panel_id, panel_elements, callback) {
     let panel = document.getElementById(panel_id);
@@ -161,6 +144,7 @@ function initXYZ() {
     }
     let AxisLength = 500;
     var axes = new THREE.AxisHelper(AxisLength);
+    // axes.position.set(500,500,500);
     scene.add(axes);
 
     let spriteX = createSpriteText("X", "#ffa905", "60px");
@@ -183,47 +167,39 @@ function initXYZ() {
 
 }
 
-
-canvas.onkeydown = function (event) {
-    let object = camera;
-    let delta = 10;
-    console.log('keyCode', event.keyCode);
-    switch (event.keyCode) {
-        case 37:
-            console.log('turnLeft');
-            // object.rotateX(Math.PI/4);
-            // cameraZoomIn(cameraZoomInOutFactor);
-            cameraRotate(camera, 0 - delta);
-            break;
-        case 38:
-            console.log('turnUP');
-            object.position.y += delta;
-            cameraInfoPanelElement.innerText = camera.toString();
-            break;
-        case 39:
-            console.log('turnRight');
-            // object.rotateX(0-Math.PI/4);
-            // cameraZoomIn(0-cameraZoomInOutFactor);
-            // camera 顺时针旋转 相当于 物体和场景逆时针渲染
-            cameraRotate(camera, delta);
-            break;
-        case 40:
-            console.log('turnDown');
-            object.position.y -= delta;
-            cameraInfoPanelElement.innerText = camera.toString();
-            break;
-    }
-};
-
-
-let cameraInfoPanelElement = document.getElementById('cameraInfoPanel');
-
-
-function ImageMapTextureLoader(url, obj, loader) {
-    THREE.ImageUtils.crossOrigin = '';
-    var mapOverlay = THREE.ImageUtils.loadTexture(url);
-    obj.setMaterial(new THREE.MeshBasicMaterial({map: mapOverlay, needsUpdate: true}))
-}
+//
+// $(canvas).onkeydown(canvas_rect(event))
+// var canvas_onkeydown = function (event) {
+//     let object = camera;
+//     let delta = 10;
+//     console.log('keyCode', event.keyCode);
+//     switch (event.keyCode) {
+//         case 37:
+//             console.log('turnLeft');
+//             // object.rotateX(Math.PI/4);
+//             // cameraZoomIn(cameraZoomInOutFactor);
+//             cameraRotate(camera, 0 - delta);
+//             break;
+//         case 38:
+//             console.log('turnUP');
+//             object.position.y += delta;
+//             cameraInfoPanelElement.innerText = camera.toString();
+//             break;
+//         case 39:
+//             console.log('turnRight');
+//             // object.rotateX(0-Math.PI/4);
+//             // cameraZoomIn(0-cameraZoomInOutFactor);
+//             // camera 顺时针旋转 相当于 物体和场景逆时针渲染
+//             cameraRotate(camera, delta);
+//             break;
+//         case 40:
+//             console.log('turnDown');
+//             object.position.y -= delta;
+//             cameraInfoPanelElement.innerText = camera.toString();
+//             break;
+//     }
+// };
+// canvas.addEventListener("keydown",canvas_onkeydown,true)
 
 
 
@@ -233,12 +209,11 @@ function ImageMapTextureLoader(url, obj, loader) {
 
 
 
-window.onresize = function () {
-    var canvas_rect = getElementRectById('webglcanvas');
-    renderer.setSize(canvas_rect.width, canvas_rect.height);
-    camera.aspect = canvas_rect.width / canvas_rect.height;
-    camera.updateProjectionMatrix();
-};
+
+
+
+
+
 
 function getElementRectById(view_id_str) {
     var element = document.getElementById(view_id_str);
@@ -340,21 +315,7 @@ function init() {
 }
 
 
-// // 监听鼠标移动方向， 从而确定地球南北半球
-// function onDocumentMouseMove(ev) {
-//     ev = ev || event;
-//     mouseX = ev.clientX - windowHalfX;
-//     mouseY = ev.clientY - windowHalfY
-// }
 
-// 监听窗口大小， 从而根据窗口大小改变地球大小， 类似响应式
-function onWindowResize() {
-    windowHalfX = window.innerWidth / 2;
-    windowHalfY = window.innerHeight / 2;
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight)
-}
 
 function animate() {
     // 请求运动帧
@@ -364,16 +325,9 @@ function animate() {
     }
 }
 
-var mouse = new THREE.Vector2();
 
-function onDocumentMouseMove(event) {
 
-    event.preventDefault();
 
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-}
 
 
 
@@ -406,7 +360,7 @@ function render() {
         // curr_mesh.position.x +=1;
         mixer.update(clock.getDelta());
     }
-    if (SELECTED) setCurrObject(SELECTED);
+    if (INTERSECTED) setCurrObject(INTERSECTED);
     orbitControls.update();
     // 核心 递归调用
 }
@@ -490,15 +444,3 @@ function calculateNewZ(newZ, radius) {
 }
 
 
-function initStats() {
-    stats = new Stats();
-    //设置统计模式
-    stats.setMode(0); // 0: fps, 1: ms
-    //统计信息显示在左上角
-    stats.domElement.style.position = 'absolute';
-    stats.domElement.style.left = '10px';
-    stats.domElement.style.top = '10px';
-    //将统计对象添加到对应的<div>元素中
-    // document.getElementById("stats-output").appendChild(stats.domElement);
-    return stats;
-}

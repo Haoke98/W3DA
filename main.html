@@ -47,30 +47,61 @@
         #tool_bar {
             position: absolute;
             background-color: rgba(55, 55, 55, 1);
-            width: 60%;
+            width: 78%;
             height: 5%;
             top: 1%;
             justify-content: space-around;
         }
 
-        #user-share-play-panel {
+        #lightPanel {
             position: absolute;
             width: 30%;
             height: 5%;
             top: 1%;
-            right: 0.5%;
+            right: 7%;
             display: flex;
-            flex-direction: row-reverse;
+            flex-direction: row;
             /*background-color: ;*/
             justify-content: space-around;
         }
 
-        /*#user-share-play-panel:nth-child(odd){*/
-        /*    background-color: #151BFD;*/
-        /*}*/
-        /*#user-share-play-panel:nth-child(even){*/
-        /*    background-color: white;*/
-        /*}*/
+        #lightPanel img {
+            height: 36px;
+            width: 36px;
+            margin-bottom: 0.1%;
+            margin-left: 1%;
+        }
+
+        #lightPanel img:hover {
+            height: 100px;
+            width: 100px;
+        }
+
+        #lightPanel img:active {
+            transform: translateY(4px);
+        }
+
+
+        #sharePanel {
+            position: absolute;
+            width: 18%;
+            height: 5%;
+            top: 1%;
+            right: 1%;
+            display: flex;
+            flex-direction: row;
+            /*background-color: ;*/
+            justify-content: space-around;
+        }
+
+        #sharePanel img:hover {
+            width: 50px;
+            height: 50px;
+        }
+
+        #sharePanel img:active {
+            transform: translateY(4px);
+        }
 
         #tool_bar img {
             height: 36px;
@@ -158,14 +189,14 @@
 
         #geometryPanel {
             right: 0.5%;
-            top: 8%;
+            top: 26%;
 
             flex-direction: column;
         }
 
         #mapPanel {
-            right: 0.5%;
-            top: 50%;
+            left: 0.5%;
+            top: 42%;
 
             flex-direction: column;
         }
@@ -178,14 +209,34 @@
         }
 
         #currObjectPanel {
-            left: 0.5%;
-            top: 50%;
+            right: 0.5%;
+            top: 8%;
+            height: 60%;
+            width: 12%;
             flex-direction: column;
         }
 
-        #objectPanel:hover, #currObjectPanel:hover {
+        .cameraSwitcher {
+            width: 100px;
+            height: 100px;
+            left: 0.5%;
+            bottom: 10%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .cameraSwitcher img {
+            width: 40%;
+            height: 40%;
+            margin: auto;
+        }
+
+        #objectPanel:hover {
             width: 12%;
         }
+
 
         #geometryPanel:hover {
             width: 12%;
@@ -306,9 +357,11 @@
             z-index: 2;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
+            background-color: rgba(0, 0, 0, 0.88);
             /*align-items: center;*/
             left: 0;
+            display: flex;
+            flex-direction: column;
             /*align-content: center;*/
             /*align-items: center;*/
             /*justify-content: center;*/
@@ -321,7 +374,20 @@
             /*top: 50%;*/
             /*left: 50%;*/
             margin: auto;
-            background-image: url("https://x.izbasarweb.xyz/static/admin/img/inline-delete.svg");
+            /*background-image: url(./img/del.png);*/
+            /*background-repeat: no-repeat;*/
+            /*background-size: 90px 90px;*/
+            width: 100px;
+            height: 100px;
+        }
+
+        #mask img:hover {
+            width: 200px;
+            height: 200px;
+        }
+
+        #mask img:active {
+            transform: rotateX(45deg);
         }
 
         #btnExport {
@@ -333,14 +399,6 @@
             right: 60px;
         }
 
-        #btnExport:hover {
-            width: 100px;
-            height: 100px;
-        }
-
-        #btnExport:active {
-            transform: translateY(4px);
-        }
 
         #userPage {
             z-index: 1;
@@ -350,15 +408,6 @@
             right: 12px;
             border: orange solid 2px;
             border-radius: 10px;
-        }
-
-        #userPage:hover {
-            width: 100px;
-            height: 100px;
-        }
-
-        #userPage:active {
-            transform: translateY(4px);
         }
 
 
@@ -483,6 +532,18 @@
             width: 80%;
         }
 
+        .trackPanel {
+            margin: auto;
+            position: absolute;
+            z-index: 1;
+            width: 96%;
+            height: 50%;
+            top: 134%;
+            bottom: 0.01%;
+            overflow: hidden;
+        }
+
+
     </style>
     <!--    <link href="css/main.css" rel="stylesheet" type="text/css" />-->
     <!--    <link rel="stylesheet" type="text/css" href="main.css"/>-->
@@ -508,16 +569,25 @@
     <!--    <img id="square" src="img/square.png">-->
     <!--    <img id="circle" src="img/circle.png">-->
 </div>
-<div id="user-share-play-panel">
-    <a href="W3DA_Page_3.html"><img id="userPage" src="img/me.png"></a>
-    <img id="btnExport" onclick="Export()" src="img/export.png">
-    <view class="stop" id="btnPlay" onclick="playOrStop()"></view>
+<!--<div id="lightPanel">-->
+<!--    <img src="./img/ambientLight.png" title="环境光">-->
+<!--    <img src="./img/spotLight.png" title="聚光灯">-->
+<!--    <img src="./img/directionLight(1).png" title="平行光">-->
+<!--    <img src="./img/pointLight.png" title="点光源">-->
+<!--</div>-->
+
+<div id="sharePanel">
+    <a href="W3DA_Page_3.html"><img id="userPage" src="img/me.png" title="个人页面"></a>
+    <img id="btnExport" onclick="Export()" src="img/export.png" title="导出">
+    <!--    <view class="stop" id="btnPlay" onclick="playOrStop()"></view>-->
 </div>
 
-<div id="geometryPanel">
-    <p>形状面板</p>
-    <view id="geometryContainerView2"></view>
-</div>
+
+
+<!--<div id="geometryPanel">-->
+<!--    <p>形状面板</p>-->
+<!--    <view id="geometryContainerView2"></view>-->
+<!--</div>-->
 
 
 <div id="mapPanel">
@@ -574,21 +644,23 @@
 <!--    付款剩余时间：23：58-->
 <!--</div>-->
 <!--    <progress max="25"></progress>-->
-<div id="KeyTrack">
-    <input max="25" min="1" onchange="showValue(this.value)" step="1" type="range" value="1"/>
-    <view>
-        <label>当前帧：</label><input id="curr_key" type="text" value="1">
-        <button onclick="setKey()">插入关键帧</button>
-    </view>
+<div class="cameraSwitcher">
+    <img src="./img/topView4.png" title="俯视图" onclick="topView(30)">
+    <img src="./img/perspectiveView.png" title="透视图" onclick="perspectiveView(30)">
+    <img src="./img/uprightView4.png" title="正视图" onclick="upRightView(30)">
+    <img src="./img/sideView4.png" title="侧视图" onclick="sideView(30)">
 </div>
+<track-controller-panel class="trackPanel" id="this"></track-controller-panel>
 
 <div hidden="hidden" id="mask">
-    <img onclick="removeMask()">
+
     <textarea id="codeExporter">
         1 #this is the code the given to you.\n
         2 #may be its sure.
 
     </textarea>
+    <img src="./img/back.png" onclick="removeMask()" title="返回操作台">
+    <view>返回操作台</view>
 </div>
 
 
@@ -606,6 +678,8 @@
 <script src="objectPanel.js"></script>
 <script src="controls.js"></script>
 <script src="main.js"></script>
+<script src="keyControl.js"></script>
+<script src="lights.js"></script>
 
 
 <template id="template_currObjectPanel">
@@ -622,6 +696,7 @@
 
         .x {
             background-color: rgba(255, 0, 0, 0.5);
+            color: white;
         }
 
         .y {
@@ -630,6 +705,7 @@
 
         .z {
             background-color: rgba(0, 0, 255, 0.5);
+            color: white;
         }
 
         p {
@@ -643,18 +719,80 @@
         input {
             width: 100%;
         }
+
+        .perAttr {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .perAttr img {
+            width: 30px;
+            height: 30px;
+        }
+        .perAttr img:active{
+            transform: translateY(4px);
+        }
     </style>
     <p>当前对象</p>
     <input class="objectName" contenteditable="false" id="currObjectName1">
     <label>X:</label>
-    <input class="x" id="currObjectX" type="number">
+    <view class="perAttr">
+        <img src="./img/plus.png" id="x_plus">
+        <input class="x" id="currObjectX" type="number">
+        <img src="./img/minus.png" id="x_minus">
+    </view>
     <label>Y:</label>
-    <input class="y" id="currObjectY" type="number">
+    <view class="perAttr">
+        <img src="./img/plus.png" id="y_plus">
+        <input class="y" id="currObjectY" type="number">
+        <img src="./img/minus.png" id="y_minus">
+    </view>
     <label>Z:</label>
-    <input class="z" id="currObjectZ" type="number">
+    <view class="perAttr">
+        <img src="./img/plus.png" id="z_plus">
+        <input class="z" id="currObjectZ" type="number">
+        <img src="./img/minus.png" id="z_minus">
+    </view>
+    <label>scaleX:</label>
+    <view class="perAttr">
+        <img src="./img/plus.png" id="scaleX_plus">
+        <input class="x" id="scaleX" type="number">
+        <img src="./img/minus.png" id="scaleX_minus">
+    </view>
+    <label>scaleY:</label>
+    <view class="perAttr">
+        <img src="./img/plus.png" id="scaleY_plus">
+        <input class="y" id="scaleY" type="number">
+        <img src="./img/minus.png" id="scaleY_minus">
+    </view>
+    <label>scaleZ:</label>
+    <view class="perAttr">
+        <img src="./img/plus.png" id="scaleZ_plus">
+        <input class="z" id="scaleZ" type="number">
+        <img src="./img/minus.png" id="scaleZ_minus">
+    </view>
+    <label>rotateX:</label>
+    <view class="perAttr">
+        <img src="./img/plus.png" id="rotateX_plus">
+        <input class="x" id="rotateX" type="number">
+        <img src="./img/minus.png" id="rotateX_minus">
+    </view>
+    <label>rotateY:</label>
+    <view class="perAttr">
+        <img src="./img/plus.png" id="rotateY_plus">
+        <input class="y" id="rotateY" type="number">
+        <img src="./img/minus.png" id="rotateY_minus">
+    </view>
+    <label>rotateZ:</label>
+    <view class="perAttr">
+        <img src="./img/plus.png" id="rotateZ_plus">
+        <input class="z" id="rotateZ" type="number">
+        <img src="./img/minus.png" id="rotateZ_minus">
+    </view>
 </template>
 <script>
     const shadowRoots = new WeakMap();
+
     class CurrObjectPanel extends HTMLElement {
         constructor() {
             super();
@@ -666,27 +804,157 @@
             const shadow = shadowRoots.get(this);
             var templateElem = document.getElementById('template_currObjectPanel');
             var content = document.importNode(templateElem.content, true);
-            content.querySelector('.objectName').setAttribute('value', SELECTED.name);
-            var elementX = content.querySelector('.x');
-            elementX.setAttribute('value', SELECTED.position.x);
+            content.querySelector('.objectName').setAttribute('value', INTERSECTED.name);
+            var elementX = content.querySelector('#currObjectX');
+            elementX.setAttribute('value', INTERSECTED.position.x);
             elementX.addEventListener('change', function (e) {
-                SELECTED.position.x = e.target.value;
+                INTERSECTED.position.x = parseFloat(e.target.value);
                 activeRenderer();
             });
-            var elementY = content.querySelector('.y');
-            elementY.setAttribute('value', SELECTED.position.y);
+            var x_plus = content.querySelector('#x_plus');
+            x_plus.addEventListener('click',function () {
+                var _x = (parseFloat(INTERSECTED.position.x)+1);
+                var _y = INTERSECTED.position.y;
+                var _z = INTERSECTED.position.z;
+                INTERSECTED.position.set(_x,_y,_z);
+                activeRenderer();
+            },true);
+            x_plus.addEventListener('dbclick',function () {
+                var _x = parseFloat(INTERSECTED.position.x)+5;
+                var _y = INTERSECTED.position.y;
+                var _z = INTERSECTED.position.z;
+                INTERSECTED.position.set(_x,_y,_z);
+                activeRenderer();
+            },true);
+            var x_minus = content.querySelector('#x_minus');
+            x_minus.addEventListener('click',function () {
+                var _x = parseFloat(INTERSECTED.position.x)-1;
+                var _y = INTERSECTED.position.y;
+                var _z = INTERSECTED.position.z;
+                INTERSECTED.position.set(_x,_y,_z);
+                activeRenderer();
+            },true);
+            x_minus.addEventListener('dbclick',function () {
+                var _x = parseFloat(INTERSECTED.position.x)-5;
+                var _y = INTERSECTED.position.y;
+                var _z = INTERSECTED.position.z;
+                INTERSECTED.position.set(_x,_y,_z);
+                activeRenderer();
+            },true);
+
+            var elementY = content.querySelector('#currObjectY');
+            elementY.setAttribute('value', INTERSECTED.position.y);
             elementY.addEventListener('change', function (e) {
-                SELECTED.position.y = e.target.value;
+                INTERSECTED.position.y = parseFloat(e.target.value);
                 activeRenderer();
             });
-            var elementZ = content.querySelector('.z');
-            elementZ.setAttribute('value', SELECTED.position.z);
+            var y_plus = content.querySelector('#y_plus');
+            y_plus.addEventListener('click',function () {
+                var _x = INTERSECTED.position.x;
+                var _y = parseFloat(INTERSECTED.position.y)+1;
+                var _z = INTERSECTED.position.z;
+                INTERSECTED.position.set(_x,_y,_z);
+                activeRenderer();
+            },true);
+            var y_minus = content.querySelector('#y_minus');
+            y_minus.addEventListener('click',function () {
+                var _x = INTERSECTED.position.x;
+                var _y = parseFloat(INTERSECTED.position.y)-1;
+                var _z = INTERSECTED.position.z;
+                INTERSECTED.position.set(_x,_y,_z);
+                activeRenderer();
+            },true);
+            var elementZ = content.querySelector('#currObjectZ');
+            elementZ.setAttribute('value', INTERSECTED.position.z);
             elementZ.addEventListener('change', function (e) {
-                SELECTED.position.z = e.target.value;
+                INTERSECTED.position.z = parseFloat(e.target.value);
                 activeRenderer();
             });
+            var z_plus = content.querySelector('#z_plus');
+            z_plus.addEventListener('click',function () {
+                var _x = INTERSECTED.position.x;
+                var _y = INTERSECTED.position.y;
+                var _z = parseFloat(INTERSECTED.position.z)+1;
+                INTERSECTED.position.set(_x,_y,_z);
+                activeRenderer();
+            },true);
+            var z_minus = content.querySelector('#z_minus');
+            z_minus.addEventListener('click',function () {
+                var _x = INTERSECTED.position.x;
+                var _y = INTERSECTED.position.y;
+                var _z = parseFloat(INTERSECTED.position.z)-1;
+                INTERSECTED.position.set(_x,_y,_z);
+                activeRenderer();
+            },true);
+            var scaleX = content.querySelector('#scaleX');
+            scaleX.setAttribute('value',INTERSECTED.scale.x);
+            scaleX.addEventListener('change',function (e){
+                INTERSECTED.sclae.x = e.target.value;
+                activeRenderer();
+            })
+            var scaleX_plus = content.querySelector('#scaleX_plus');
+            scaleX_plus.addEventListener('click',function () {
+                INTERSECTED.scale.x+=0.1;
+                activeRenderer();
+            })
+            var scaleX_minus = content.querySelector('#scaleX_minus');
+            scaleX_minus.addEventListener('click',function () {
+                INTERSECTED.scale.x-=0.1;
+                activeRenderer();
+            })
+            var scaleY = content.querySelector('#scaleY');
+            scaleY.setAttribute('value',INTERSECTED.scale.y);
+            scaleY.addEventListener('change',function (e){
+                INTERSECTED.sclae.y = e.target.value;
+                activeRenderer();
+            })
+            var scaleY_plus = content.querySelector('#scaleY_plus');
+            scaleY_plus.addEventListener('click',function () {
+                INTERSECTED.scale.y+=0.1;
+                activeRenderer();
+            })
+            var scaleY_minus = content.querySelector('#scaleY_minus');
+            scaleY_minus.addEventListener('click',function () {
+                INTERSECTED.scale.y-=0.1;
+                activeRenderer();
+            })
+            var scaleZ = content.querySelector('#scaleZ');
+            scaleZ.setAttribute('value',INTERSECTED.scale.z);
+            scaleZ.addEventListener('change',function (e){
+                INTERSECTED.sclae.z = e.target.value;
+                activeRenderer();
+            })
+            var scaleZ_plus = content.querySelector('#scaleZ_plus');
+            scaleZ_plus.addEventListener('click',function () {
+                INTERSECTED.scale.z+=0.1;
+                activeRenderer();
+            });
+            var scaleZ_minus = content.querySelector('#scaleZ_minus');
+            scaleZ_minus.addEventListener('click',function () {
+                INTERSECTED.scale.z-=0.1;
+                activeRenderer();
+            });
+
+            var rotateX = content.querySelector('#rotateX');
+            rotateX.addEventListener('change',function (e) {
+                INTERSECTED.rotate.x = e.target.value;
+            })
+            var rotateY = content.querySelector('#rotateY');
+            rotateX.addEventListener('change',function (e) {
+                INTERSECTED.rotate.y = e.target.value;
+            })
+            var rotateZ = content.querySelector('#rotateZ');
+            rotateZ.addEventListener('change',function (e) {
+                INTERSECTED.rotate.z = e.target.value;
+            })
             shadow.innerHTML = "";
             shadow.appendChild(content);
+
+        }
+        bindEvent(){
+
+        }
+        updateData(){
 
         }
 
@@ -705,5 +973,398 @@
 
     window.customElements.define("curr-object-panel", CurrObjectPanel);
 </script>
+
+
+<template id="template_key">
+    <div class="timli">
+        <div class="track" id="#"></div>
+        <!--        <div class="kuai_num_container">-->
+        <div class="kuai"></div>
+        <div class="key_num_show">7</div>
+        <!--        </div>-->
+    </div>
+</template>
+
+
+<template id="template_track_controller_panel">
+    <style>
+        .trackPale {
+            width: 100%;
+            height: 40px;
+            display: flex;
+            flex-direction: row;
+            /*border: solid orange 2px;*/
+            /*background: #005881;*/
+        }
+
+        .control {
+            width: 18%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            /*background-color: green;*/
+            overflow: hidden;
+            justify-content: space-around;
+        }
+
+        .control img {
+            height: 70%;
+            width: 15%;
+            margin: auto;
+        }
+
+        .control img:hover {
+            height: 90%;
+            width: 30%;
+        }
+
+        .control img:active {
+            transform: translateY(4px);
+        }
+
+        .trackPale1 {
+            width: 82%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .track1 {
+            width: 100%;
+            height: 20%;
+            background-color: white;
+        }
+
+        .timdiv {
+            width: 100%;
+            height: 80%;
+            display: flex;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .huadiv {
+            width: 0%;
+            height: 0%;
+            border: 1px solid deepskyblue;
+            position: fixed;
+            top: 0.2%;
+            left: 0.6%;
+            box-sizing: border-box;
+            background: aqua;
+            padding: 3px 0px;
+            box-shadow: 0px 0px 11px -2px deepskyblue;
+            z-index: 3;
+        }
+
+        .huadiv div {
+            width: 100%;
+            height: 100%;
+            /*background: deepskyblue;*/
+        }
+
+        .timli {
+            width: 14%;
+            height: 100%;
+
+            z-index: 2;
+            border: solid orange 1px;
+
+        }
+
+        .track {
+            width: 100%;
+            height: 20%;
+            background-color: aqua;
+        }
+
+        .kuai {
+            width: 4px;
+            height: 20%;
+            background: deepskyblue;
+            margin: auto auto;
+        }
+
+        .key_num_show {
+            cursor: pointer;
+            width: 60%;
+            height: 50%;
+            text-align: center;
+            justify-content: center;
+            /*line-height: 40px;*/
+            color: #ffffff;
+            font-size: 100%;
+            border-radius: 3px;
+            margin: auto auto;
+            /*background: deepskyblue;*/
+        }
+
+        .key_num_show:hover {
+            color: #000b13;
+            background: deepskyblue;
+        }
+
+        .huadiv div {
+            width: 100%;
+            height: 100%;
+            /*background: deepskyblue;*/
+        }
+
+        .timli {
+            width: 14%;
+            height: 100%;
+
+            z-index: 2;
+            border: solid orange 1px;
+
+        }
+
+        .track {
+            width: 100%;
+            height: 20%;
+            background-color: aqua;
+        }
+
+        .kuai {
+            width: 4px;
+            height: 20%;
+            background: deepskyblue;
+            margin: auto auto;
+        }
+
+        .key_num_show {
+            cursor: pointer;
+            width: 60%;
+            height: 50%;
+            text-align: center;
+            justify-content: center;
+            /*line-height: 40px;*/
+            color: #ffffff;
+            font-size: 100%;
+            border-radius: 3px;
+            margin: auto auto;
+            /*background: deepskyblue;*/
+        }
+
+        .key_num_show:hover {
+            color: #000b13;
+            background: deepskyblue;
+        }
+
+
+        .track-curr-key {
+            background-color: yellow;
+        }
+    </style>
+    <div class="trackPale">
+        <div class="control">
+            <img id="fastBackward" src="./img/backward.png" title="从当前贞开始逆序播放">
+            <img id="prev_key" src="./img/backward2.png" title="移动上一帧">
+            <img id="track_play" src="./img/play(1).png" title="从头开始播放一次">
+            <img id="loop" src="./img/loop.png" title="从头开始循环播放">
+            <img id="next_key" src="./img/forward2.png" title="移动到下一帧">
+            <img id="fastForward" src="./img/forward.png" title="从当前贞开始正序播放">
+        </div>
+        <div class="trackPale1">
+            <div class="track1" id="track_slider_container">
+                <div class="huadiv">
+                    <div></div>
+                </div>
+            </div>
+            <div class="timdiv" id="key_container">
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    // var shadowRoots = new WeakMap();
+
+    class TrackController extends HTMLElement {
+        // readonly HEAD_KEY_ID:"KEY";
+        // update():void;
+        // attr:string;
+        // disabled:boolean;
+        // disabled: boolean;
+
+        constructor() {
+            super();
+            const shadow = this.attachShadow({mode: 'closed'});
+            shadowRoots.set(this, shadow);
+            this.inflate();
+            this.HEAD_KEY_ID = "KEY"
+        }
+
+        inflate() {
+            var templateEml = document.getElementById("template_track_controller_panel");
+            var content = document.importNode(templateEml.content, true);
+            var shadow = shadowRoots.get(this);
+            shadow.appendChild(content);
+            this.create(1, 30, content);
+        }
+
+        create(start, end) {
+            this.KEY_START = start;
+            this.KEY_END = end;
+            var shadow = shadowRoots.get(this);
+            var containerElm = shadow.querySelector('.timdiv')
+            this.inflate_all_key(start, end, containerElm);
+            this.setCurrKey(this.KEY_START + 3);
+            this.setCurrKey(this.KEY_START + 2);
+            this.setCurrKey(this.KEY_START + 1);
+            this.setCurrKey(this.KEY_START);
+            this.bindAllEvent();
+        }
+
+        bindAllEvent() {
+            var _this = this;
+            this.bindEvent(".timli", "click", function () {
+                var timli = $(this)
+                var firstChild = timli.children().get(0);
+                var elm_id = $(firstChild).attr('id');
+                // console.log("this is timli click.", timli, firstChild, elm_id);
+                var key = _this.getKeyById(elm_id);
+                _this.setCurrKey(key);
+            })
+            this.bindEvent("#loop", "click", function () {
+                playOrStop();
+                for (var ii = 0; ii <= 4; ii++) {
+                    for (var i = _this.CURR; i <= _this.KEY_END; i++) {
+                        _this.setCurrKey(i);
+                    }
+                    _this.setCurrKey(_this.KEY_START);
+                }
+                // playOrStop();
+                // $(this).click();
+            })
+            this.bindEvent("#prev_key", "click", function () {
+                _this.setCurrKey(_this.CURR - 1);
+            })
+            this.bindEvent("#next_key", "click", function () {
+                _this.setCurrKey(_this.CURR + 1);
+            })
+            this.bindEvent("#track_play", "click", function () {
+                playOrStop();
+                var src = this.getAttribute("src");
+                if (src == "./img/stop.png") {
+                    this.setAttribute("src", "./img/play.png");
+                } else {
+                    this.setAttribute("src", "./img/stop.png");
+                }
+                for (var i = _this.KEY_START; i <= _this.KEY_END; i++) {
+                    _this.setCurrKey(i);
+                }
+            })
+            this.bindEvent("#fastForward", "click", function () {
+                for (var i = _this.CURR; i <= _this.KEY_END; i++) {
+                    _this.setCurrKey(i);
+                }
+            })
+            this.bindEvent("#fastBackward", "click", function () {
+                for (var i = _this.CURR; i >= _this.KEY_START; i--) {
+                    _this.setCurrKey(i);
+                }
+            })
+        }
+
+        bindEvent(selector, event_name, callback) {
+            var shadow = shadowRoots.get(this);
+            var elems = shadow.querySelectorAll(selector);
+            // console.log("this is elements selected:", elems)
+            for (var i = 0; i < elems.length; i++) {
+                elems[i].addEventListener(event_name, callback);
+            }
+
+        }
+
+        inflate_all_key(start, end, container) {
+            this.KEY_COUNT = end - start + 1;
+            this.WIDTH_PER_KEY_BY_NUM = 100 / this.KEY_COUNT
+            this.WIDTH_PER_KEY_BY_PERCENT = this.WIDTH_PER_KEY_BY_NUM + "%";
+            container.innerHTML = "";
+            // console.log("this is key_container:", container);
+            for (var i = start; i <= end; i++) {
+                var content = this.inflate_per_key(i, this.WIDTH_PER_KEY_BY_PERCENT);
+                container.appendChild(content);
+            }
+        }
+
+        inflate_curr_key_slider(key) {
+            var shadow = shadowRoots.get(this);
+            var huadiv = shadow.querySelector(".huadiv");
+            var slider_attrs = this.getSliderAttr(key);
+            // console.log("this is slider's attrs:", slider_attrs);
+            var to_id = this.getIdByKey(key);
+            $(huadiv).animate(slider_attrs, 50, function () {
+                $(shadow.querySelector(".track-curr-key")).removeClass("track-curr-key");
+                $(shadow.querySelector("#" + to_id)).addClass("track-curr-key");
+            });
+
+        }
+
+        getSliderAttr(key, parent) {
+            var shadow = shadowRoots.get(this);
+            var bounds = shadow.querySelector("#track_slider_container").getBoundingClientRect();
+            var _width = bounds.width / this.KEY_COUNT;
+            var _height = bounds.height;
+            var _left = _width * (key - this.KEY_START);
+            _left += bounds.left;
+            var _top = bounds.top;
+            return {width: _width, height: _height, left: _left, top: _top}
+        }
+
+        inflate_per_key(key_index, width_per_key_by_percent) {
+            var templateElm = document.getElementById("template_key");
+            var content = document.importNode(templateElm.content, true);
+            content.querySelector('.timli').style.width = width_per_key_by_percent;
+            // console.log(this.getIdByKey(key_index));
+            content.querySelector('.track').setAttribute('id', this.getIdByKey(key_index))
+            content.querySelector('.key_num_show').innerHTML = key_index
+            // console.log(key_index, ":", content)
+            return content
+        }
+
+        getIdByKey(key_index) {
+            return "KEY" + key_index;
+        }
+
+        getKeyById(elmid) {
+            return parseInt(elmid.split("KEY")[1]);
+        }
+
+        activateCurrKey(from, to) {
+            console.log(from, to)
+            if (from < to) {
+                for (var i = from; i < to; i++) {
+                    change(i, i + 1)
+                }
+            } else {
+                for (var x = from; x > to; x--) {
+                    change(x, x - 1)
+                }
+            }
+        }
+
+
+        change(i, ii) {
+            var nextCurr_id = this.getIdByKey(ii);
+            setTimeout(function () {
+                $("#" + nextCurr_id).addClass("track-curr-key");
+            }, 400 * i)
+            console.log("of :", prevCurr_id, "on:", nextCurr_id);
+        }
+
+        setCurrKey(key) {
+            key = Math.max(key, this.KEY_START);
+            key = Math.min(key, this.KEY_END);
+            this.inflate_curr_key_slider(key);
+            this.CURR = key;
+        }
+    }
+
+    window.customElements.define("track-controller-panel", TrackController);
+</script>
+
+
 </body>
 </html>

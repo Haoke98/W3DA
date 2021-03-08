@@ -95,7 +95,7 @@
 </head>
 <body>
 <div id="3" style="position: relative; top: 100px; z-index: 3;">
-    <form action="register.html" id="f1" method="post">
+    <form action="/W3DA/register" id="f1" method="post">
         <table align="center" cellspacing="0" class="table">
             <tr class="thead">
                 <td align="center">
@@ -191,5 +191,32 @@
         </table>
     </form>
 </div>
+<script>
+    function register() {
+        var _username = $("#username").val();
+        var _password = $("#password").val();
+        var xhr = new XMLHttpRequest();//第一步：建立所需的对象
+        var _form = document.createElement('form')
+        data = {
+            username: _username,
+            password: _password,
+        }
+        xhr.open('POST', '/W3DA/register', true);//第二步：打开连接  将请求参数写在url中  ps:"./Ptest.php?name=test&nameone=testone"
+        xhr.send(JSON.stringify(data));//第三步：发送请求  将请求参数写在URL中
+        /**
+         * 获取数据后的处理程序
+         */
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var _json = JSON.parse(xhr.responseText);//获取到json字符串，还需解析
+                console.log(_json, _json.err_msg);
+                if (_json.err_msg==="ok"){
+                    document.location.replace("main.html")
+                }
+                alert(_json.err_msg);
+            }
+        }
+    }
+</script>
 </body>
 </html>
