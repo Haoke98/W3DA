@@ -6,7 +6,7 @@
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <meta content="never" name="referrer">
     <meta content="no-cache, no-store, must-revalidate" http-equiv="Cache-Control"/>
-    <link href="img3DAlogo.png" rel="icon">
+    <link href="img/WEB3DAlogo.png" rel="icon">
     <title>W3DA's Main Page</title>
     <style>
         html,
@@ -547,10 +547,10 @@
     </style>
     <!--    <link href="css/main.css" rel="stylesheet" type="text/css" />-->
     <!--    <link rel="stylesheet" type="text/css" href="main.css"/>-->
-    <script src="libshree.min.js"></script>
-    <script src="libsrbitControls.js"></script>
-    <script src="libstats.min.js"></script>
-    <script src="libsquery-3.5.1.min.js"></script>
+    <script src="libs/three.min.js"></script>
+    <script src="libs/OrbitControls.js"></script>
+    <script src="libs/stats.min.js"></script>
+    <script src="libs/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
@@ -645,10 +645,10 @@
 <!--</div>-->
 <!--    <progress max="25"></progress>-->
 <div class="cameraSwitcher">
-    <img src="imgopView4.png" title="俯视图" onclick="topView(30)">
-    <img src="imgerspectiveView.png" title="透视图" onclick="perspectiveView(30)">
-    <img src="imgprightView4.png" title="正视图" onclick="upRightView(30)">
-    <img src="imgideView4.png" title="侧视图" onclick="sideView(30)">
+    <img src="img/topView4.png" title="俯视图" onclick="topView(30)">
+    <img src="img/perspectiveView.png" title="透视图" onclick="perspectiveView(30)">
+    <img src="img/uprightView4.png" title="正视图" onclick="upRightView(30)">
+    <img src="img/sideView4.png" title="侧视图" onclick="sideView(30)">
 </div>
 <track-controller-panel class="trackPanel" id="this"></track-controller-panel>
 
@@ -659,7 +659,7 @@
         2 #may be its sure.
 
     </textarea>
-    <img src="imgack.png" onclick="removeMask()" title="返回操作台">
+    <img src="img/back.png" onclick="removeMask()" title="返回操作台">
     <view>返回操作台</view>
 </div>
 
@@ -737,57 +737,57 @@
     <input class="objectName" contenteditable="false" id="currObjectName1">
     <label>X:</label>
     <view class="perAttr">
-        <img src="imglus.png" id="x_plus">
+        <img src="img/plus.png" id="x_plus">
         <input class="x" id="currObjectX" type="number">
-        <img src="imginus.png" id="x_minus">
+        <img src="img/minus.png" id="x_minus">
     </view>
     <label>Y:</label>
     <view class="perAttr">
-        <img src="imglus.png" id="y_plus">
+        <img src="img/plus.png" id="y_plus">
         <input class="y" id="currObjectY" type="number">
-        <img src="imginus.png" id="y_minus">
+        <img src="img/minus.png" id="y_minus">
     </view>
     <label>Z:</label>
     <view class="perAttr">
-        <img src="imglus.png" id="z_plus">
+        <img src="img/plus.png" id="z_plus">
         <input class="z" id="currObjectZ" type="number">
-        <img src="imginus.png" id="z_minus">
+        <img src="img/minus.png" id="z_minus">
     </view>
     <label>scaleX:</label>
     <view class="perAttr">
-        <img src="imglus.png" id="scaleX_plus">
+        <img src="img/plus.png" id="scaleX_plus">
         <input class="x" id="scaleX" type="number">
-        <img src="imginus.png" id="scaleX_minus">
+        <img src="img/minus.png" id="scaleX_minus">
     </view>
     <label>scaleY:</label>
     <view class="perAttr">
-        <img src="imglus.png" id="scaleY_plus">
+        <img src="img/plus.png" id="scaleY_plus">
         <input class="y" id="scaleY" type="number">
-        <img src="imginus.png" id="scaleY_minus">
+        <img src="img/minus.png" id="scaleY_minus">
     </view>
     <label>scaleZ:</label>
     <view class="perAttr">
-        <img src="imglus.png" id="scaleZ_plus">
+        <img src="img/plus.png" id="scaleZ_plus">
         <input class="z" id="scaleZ" type="number">
-        <img src="imginus.png" id="scaleZ_minus">
+        <img src="img/minus.png" id="scaleZ_minus">
     </view>
     <label>rotateX:</label>
     <view class="perAttr">
-        <img src="imglus.png" id="rotateX_plus">
+        <img src="img/plus.png" id="rotateX_plus">
         <input class="x" id="rotateX" type="number">
-        <img src="imginus.png" id="rotateX_minus">
+        <img src="img/minus.png" id="rotateX_minus">
     </view>
     <label>rotateY:</label>
     <view class="perAttr">
-        <img src="imglus.png" id="rotateY_plus">
+        <img src="img/plus.png" id="rotateY_plus">
         <input class="y" id="rotateY" type="number">
-        <img src="imginus.png" id="rotateY_minus">
+        <img src="img/minus.png" id="rotateY_minus">
     </view>
     <label>rotateZ:</label>
     <view class="perAttr">
-        <img src="imglus.png" id="rotateZ_plus">
+        <img src="img/plus.png" id="rotateZ_plus">
         <input class="z" id="rotateZ" type="number">
-        <img src="imginus.png" id="rotateZ_minus">
+        <img src="img/minus.png" id="rotateZ_minus">
     </view>
 </template>
 <script>
@@ -1158,12 +1158,12 @@
     </style>
     <div class="trackPale">
         <div class="control">
-            <img id="fastBackward" src="imgackward.png" title="从当前贞开始逆序播放">
-            <img id="prev_key" src="imgackward2.png" title="移动上一帧">
-            <img id="track_play" src="imglay(1).png" title="从头开始播放一次">
-            <img id="loop" src="imgoop.png" title="从头开始循环播放">
-            <img id="next_key" src="imgorward2.png" title="移动到下一帧">
-            <img id="fastForward" src="imgorward.png" title="从当前贞开始正序播放">
+            <img id="fastBackward" src="img/backward.png" title="从当前贞开始逆序播放">
+            <img id="prev_key" src="img/backward2.png" title="移动上一帧">
+            <img id="track_play" src="img/play(1).png" title="从头开始播放一次">
+            <img id="loop" src="img/loop.png" title="从头开始循环播放">
+            <img id="next_key" src="img/forward2.png" title="移动到下一帧">
+            <img id="fastForward" src="img/forward.png" title="从当前贞开始正序播放">
         </div>
         <div class="trackPale1">
             <div class="track1" id="track_slider_container">
